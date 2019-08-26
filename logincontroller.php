@@ -40,7 +40,7 @@
 
     //check of de mail echt is of niet
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-      $message = "This is not a vaild mail";
+      $message = "This is not a valid mail";
       header("location: register.php?msg=$message");
       exit;
     }

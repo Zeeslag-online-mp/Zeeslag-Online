@@ -25,3 +25,16 @@
     $password = $_POST ['password'];
 
   }
+
+  //register
+
+  if($_POST ['type'] === 'register'){
+
+    //variabel
+    $email = $_POST['email'];
+    $username= $_POST ['username'];
+    $password = $_POST['password'];
+
+    //password hashen
+    $passwordhashed = password_hash($password, PASSWORD_DEFAULT);
+  }

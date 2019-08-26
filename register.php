@@ -43,7 +43,7 @@
             <input type="email" placeholder="Enter Email" name="email" id="email">
 
             <label for="username"><b class="register-username">Username</b></label>
-            <input type="text" placeholder="Enter username" name="username">
+            <input type="text" placeholder="Enter username" name="username" id="username">
 
             <label for="psw"><b class="register-password">Password</b></label>
             <input type="password" placeholder="Enter Password" name="password">

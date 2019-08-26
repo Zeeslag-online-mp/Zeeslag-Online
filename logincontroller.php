@@ -37,4 +37,11 @@
 
     //password hashen
     $passwordhashed = password_hash($password, PASSWORD_DEFAULT);
+
+    //check of de mail echt is of niet
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+      $message = "This is not a vaild mail";
+      header("location: register.php?msg=$message");
+      exit;
+    }
   }

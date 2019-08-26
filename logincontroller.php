@@ -14,3 +14,8 @@
   require 'config.php';
 
   //login
+
+  if ($_POST ['type'] === 'login'){
+
+    
+  }

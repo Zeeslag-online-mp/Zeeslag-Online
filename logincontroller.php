@@ -17,5 +17,11 @@
 
   if ($_POST ['type'] === 'login'){
 
-    
+    $errormsg = '';
+
+    //haal de date op van form
+    $email = $_POST ['email'];
+    $username = $_POST ['username'];
+    $password = $_POST ['password'];
+
   }

@@ -1,0 +1,27 @@
+{
+  "name": "zeeslag-online",
+  "version": "1.0.0",
+  "description": "Zeeslag-Online\r testr",
+  "main": "app.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zeeslag-online-mp/Zeeslag-Online.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zeeslag-online-mp/Zeeslag-Online/issues"
+  },
+  "homepage": "https://github.com/Zeeslag-online-mp/Zeeslag-Online#readme"
+}

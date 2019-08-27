@@ -5,6 +5,13 @@
  * Date: 26-8-2019
  * Time: 11:26
  */
+
+require 'config.php';
+
+if( isset($_GET['msg'])){
+  echo $_GET['msg'];
+}
+
 ?>
 
 <!doctype html>

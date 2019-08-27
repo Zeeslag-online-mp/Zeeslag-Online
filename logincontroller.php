@@ -6,7 +6,7 @@
  * Time: 11:14
  */
 
-  if($_server['REQUEST_METHODE'] != 'POST'){
+  if($_SERVER['REQUEST_METHOD'] != 'POST'){
     header("index.php");
     exit;
   };
@@ -99,13 +99,16 @@
     }
 
     //selecteer uit de data base user waar email en gebruiksnaam staat
-    $database=$db->prepare("select * from users where email = :email, username = :username");
+    $sqlStatement = "select * from users where email = ".$email." username = ".$username." ";
+
+    $database=$db->prepare($sqlStatement);
 
     $database->bindParam(":email", $email);
-    
+
     $database->bindParam(":username", $username);
     //voer die het uit
     $database->execute();
+
     //gaat checken
     $countmail=$database->rowCount();
     //gaat checkem
@@ -119,6 +122,14 @@
       header("location: register.php?msg=$message");
       exit();
     }
+
+    if ($_POST['password'] != $_POST['passwordconfirm']) {
+
+      $message = "Wachtwoord komt niet overeen!";
+      echo "<script type='text/javascript'>alert('$message');</script>";
+
+    }
+
     //check de username
     if ($countuser >0){
       $message = 'Deze gebruiker bestaat al';
@@ -128,22 +139,25 @@
       exit();
     }
 
-    //hier check die of de wachtwoorden overeen komen
-    if ($_POST['password'] == ['passwordconfirm']){
-      $sql = "INSERT INTO users (email, password, username) VALUE :email :password :username";
-      $prepare= $db->prepare($sql);
-      $prepare->execute([
-        ':email' => $email,
-        ':username' => $username,
-        ':password' => $passwordhashed
-      ]);
-      $msg = "Account is succesvol aangemaakt!";
-      header("location: login.php?msg=$msg");
-      exit;
+    // hier check die of de wachtwoord niet leeg is
+    if($_POST['password'] == ""){
+      $msg = "Wachtwoord mag niet leeg zijn!";
+      header("location: register.php?msg=$msg");
+
     }
-    //als de wachtwoord niet overeenkomt
     else{
-      $messagefail = "wachtwoorden komen niet overeen!";
-      header("location: register.php?msg=$messagefail");
+      //hier check die of de wachtwoorden overeen komen
+      if ($_POST['password'] == ['passwordconfirm']){
+        $sql = "INSERT INTO users (email, password, username) VALUE :email :password :username";
+        $prepare= $db->prepare($sql);
+        $prepare->execute([
+          ':email' => $email,
+          ':password' => $passwordhashed,
+          ':username' => $username
+        ]);
+        $msg = "Account is succesvol aangemaakt!";
+        header("location: login.php?msg=$msg");
+        exit;
+      }
     }
   }

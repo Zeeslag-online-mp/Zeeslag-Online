@@ -8,10 +8,10 @@
 
 
 
-$dbName = '';
-$dbHost = '';
+$dbName = 'zeeslag';
+$dbHost = 'localhost';
 $dbPass = '';
-$dbUser = '';
+$dbUser = 'root';
 
 $db = new PDO(
   "mysql:host=$dbHost;dbname=$dbName",
@@ -24,3 +24,7 @@ $db ->setAttribute(
   PDO::ATTR_ERRMODE,
   PDO::ERRMODE_EXCEPTION
 );
+
+if(session_id() == '' || !isset($_SESSION)){
+  session_start();
+}

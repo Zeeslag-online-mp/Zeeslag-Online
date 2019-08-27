@@ -22,7 +22,7 @@
 <body>
   <header>
     <div class="navbar">
-      <h1><a href="">ZEESLAG</a></h1>
+      <h1><a href="index.php">ZEESLAG</a></h1>
       <p><a href="">HOME</a></p>
       <p><a href="">LOGIN</a>  OF  <a href="">MAAK EEN ACCOUNT AAN</a></p>
     </div>   

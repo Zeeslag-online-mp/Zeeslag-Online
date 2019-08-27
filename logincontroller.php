@@ -7,7 +7,7 @@
  */
 
   if($_SERVER['REQUEST_METHOD'] != 'POST'){
-    header('Location: index.php');
+    header("index.php");
     exit;
   };
 
@@ -64,7 +64,7 @@
             $_SESSION['username'] = $data ['username'];
 
             header("Location: register.php");
-            exit;
+            exit();
           }
           else{
             $errormsg = 'Acoount bestaat niet!';

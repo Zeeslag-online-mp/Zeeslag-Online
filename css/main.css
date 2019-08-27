@@ -98,10 +98,65 @@ textarea {
    ========================================================================== */
 
 
+/* ------ GLOBAL ------ */
+
+body {
+    font-family: Calibri;
+    height: 100%;
+    margin: 0;
+}
 
 
 
+/* ------ HOMEPAGE ------ */
 
+
+.navbar {
+    background: #8497B0;
+    max-height: 88px;
+}
+
+.navbar {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    align-content: space-between;
+    margin: auto auto;
+}
+
+.navbar p, h1 {
+    padding: 0 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+.background-img {
+    background-image: url("../img/battleships-banner.jpg");
+    height: 640px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.button {
+    font-size: 1.5em;
+    border-radius: 5px;
+    padding: 15px 50px;
+    background: #F89606;
+    text-decoration: none;
+    color: #fff;
+}
+
+.centered {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 
 

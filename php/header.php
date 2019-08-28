@@ -23,13 +23,15 @@
 
 <body class="background-img">
   <header>
-    <div class="navbar">
       <div class="container">
-        <h1><a href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>ZEESLAG</a></h1>
-        <p><a href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>HOME</a></p>
-        <p><a href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/login.php'?>>LOGIN</a>  OF  <a href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/register.php'?>>MAAK EEN ACCOUNT AAN</a></p>
-      </div>
-    </div>   
+        <div class="navbar">
+        <h1><a class="header-titel" href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>ZEESLAG</a></h1>
+          <a class="header-link1" href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>HOME</a>
+          <a class="header-link2" href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/login.php'?>>LOGIN</a>
+          <p class="header-streepje">|</p>  
+          <a class="header-link3" href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/register.php'?>>REGISTER</a>
+        </div>
+      </div>  
   </header>
   <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>

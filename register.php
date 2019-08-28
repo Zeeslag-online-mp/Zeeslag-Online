@@ -40,7 +40,7 @@ if( isset($_GET['msg'])){
       <div class="background-register">
         <h2>Register Zeeslag</h2>
         <nav class="navigatie.register">
-          <a href="index.html">Home</a>
+          <a href="index.php">Home</a>
           <a href="login.php">Login</a>
         </nav>
           <form action="logincontroller.php" method="post">

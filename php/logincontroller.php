@@ -102,7 +102,7 @@ if($_POST ['type'] === 'register'){
   //selecteer email en daarna ga die checken of de mail bestaat via databee
   $sqlStatement = "select * from users where email=:email";
 
-  $database=$db->prepare(":email", $email);
+  $database=$db->prepare($sqlStatement);
 
   $database->bindParam(":email", $email);
 

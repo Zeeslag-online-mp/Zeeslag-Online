@@ -82,96 +82,99 @@
 
   //register
 
-  if($_POST ['type'] === 'register'){
+  if ($_POST['type'] === 'register') {
 
-    //variabel
     $email = $_POST['email'];
-    $username= $_POST ['username'];
     $password = $_POST['password'];
+    $username = $_POST['username'];
 
-    //password hashen
-    $passwordhashed = password_hash($password, PASSWORD_DEFAULT);
-
-    //check of de mail echt is of niet
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-      $message = "This is not a valid mail";
-      header("location: register.php?msg=$message");
-      exit;
+    try {
+        $conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        exit($e->getMessage());
     }
 
-    //selecteer email en daarna ga die checken of de mail bestaat via databee
-    $sqlStatement = "select * from users where email=:email";
+    if (isset($_POST['submit'])) {
 
-    $database=$db->prepare($sqlStatement);
+        try {
+            $stmt = $conn->prepare('SELECT email FROM users WHERE email = ?');
+            $stmt->bindParam(1, $_POST['email']);
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-    $database->bindParam(":email", $email);
+            }
+        } catch (PDOException $e) {
+            echo 'ERROR: ' . $e->getMessage();
+        }
+
+        if ($stmt->rowCount() > 0) {
+            echo "Uw email bestaat al";
+        } else {
+            echo "Uw email bestaat nog niet";
+        }
+        if (empty($_POST["email"])) {
+            $emailErr = "Email is vereist";
+        } else {
+            $email = test_input($_POST["email"]);
+        }
+        try {
+          $stmt = $conn->prepare('SELECT username FROM users WHERE username = ?');
+          $stmt->bindParam(1, $_POST['username']);
+          $stmt->execute();
+          while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+          }
+      } catch (PDOException $e) {
+          echo 'ERROR: ' . $e->getMessage();
+      }
+
+      if ($stmt->rowCount() > 0) {
+          echo "Uw username bestaat al";
+      } else {
+          echo "Uw username bestaat nog niet";
+      }
+      if (empty($_POST["username"])) {
+          $userErr = "Username is vereist";
+      } else {
+          $user = test_input($_POST["user"]);
+      }
+
+    }
+   
+        if (strlen($password) < 7 || strlen($password) > 16) {
+            $errors[] = "Het wachtwoord moet ten minste 7 karakters en maximaal 16 karakters U word na 5 seconden teruggestuurd.";
+        }
+        if (!preg_match("/\d/", $password)) {
+            $errors[] = "Het wachtwoord moet ten minste 1 cijfer Bevatten U word na 5 seconden teruggestuurd.";
+        }
+        if (!preg_match("/[A-Z]/", $password)) {
+            $errors[] = "Het wachtwoord moet een hoofdletter bevatten U word na 5 seconden teruggestuurd.";
+        }
+        if (!preg_match("/[a-z]/", $password)) {
+            $errors[] = "Het wachtwoord moet tenminste 1 kleine letter bevatten U word na 5 seconden teruggestuurd.";
+        }
+
+        if ($errors) {
+            foreach ($errors as $error) {
+                echo $error . "\n";
+            }
+            header("refresh:5; url=https://jaibreyonlourens.nl/Project-Fifa-PHP/register.php");
     
-    $database->execute();
+            die();
+        } else {
+            header('location: login.php');
+        }
+        $passwordHash = password_hash($password, PASSWORD_BCRYPT, array("cost" => 12));
 
-    //selecteer username en daarna ga die checken of de username bestaat via data base
-    $sqlStatement = "select * from users where username=:username";
-
-    $databasea=$db->prepare($sqlStatement);
-
-    $databasea->bindParam(":username", $username);
-
-    $databasea->execute();
-
-    //gaat checken
-    $countmail=$database->rowCount();
-    //gaat checkem
-    $countuser=$databasea->rowCount();
-
-    //als de email bestaad krijg je deze bericht
-    if ($countmail >0){
-      $message = 'Deze email bestaat al';
-      echo "<script type='text/javascript'>alert('$message');</script>";
-
-      header("location: register.php?msg=$message");
-      exit();
-    }
-
-    //check de username
-    if ($countuser >0){
-      $message = 'Deze gebruiker bestaat al';
-      echo "<script type='text/javascript'>alert('$message');</script>";
-
-      header("location: register.php?msg=$message");
-      exit();
-    }
-
-    if ($_POST['password'] != $_POST['passwordconfirm']) {
-
-      $message = "Wachtwoord komt niet overeen!";
-      echo "<script type='text/javascript'>alert('$message');</script>";
-      exit();
-
-    }
-
-    // hier check die of de wachtwoord niet leeg is
-    if($_POST['password'] == ""){
-      $msg = "Wachtwoord mag niet leeg zijn!";
-      header("location: register.php?msg=$msg");
-
-    }
-    else{
-      //hier check die of de wachtwoorden overeen komen
-      if ($_POST['password'] == $_POST['passwordconfirm']){
-
-        $sql = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
+        $sql = "INSERT INTO users (email, password, username) 
+                     VALUES (:email, :password, :username)";
         $prepare = $db->prepare($sql);
         $prepare->execute([
-          ':email' => $email,
-          ':username' => $username,
-          ':password' => $passwordhashed
+            ':email'         => $email,
+            ':password'      => $passwordHash,
+            ':username'      => $username
         ]);
-        $msg = "Account is succesvol aangemaakt!";
-        header("location: login.php?msg=$msg");
-        exit;
-
-      } else {
-        $messagefail = "wachtwoorden komen niet overeen!";
-        header("location: register.php?msg=$messagefail");
-      }
-    }
-  }
+  
+}
+exit;

@@ -12,37 +12,15 @@ if( isset($_GET['msg'])){
   echo $_GET['msg'];
 }
 
+require 'header.php';
+
 ?>
-
-<!doctype html>
-<html class="no-js" lang="">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link rel="manifest" href="../site.webmanifest">
-  <link rel="apple-touch-icon" href="../icon.png">
-  <!-- Place favicon.ico in the root directory -->
-
-  <link rel="stylesheet" href="../css/normalize.css">
-  <link rel="stylesheet" href="../css/main.css">
-</head>
-
-<body>
 
 <main>
   <div class="register">
     <div class="container">
       <div class="background-register">
         <h2>Register Zeeslag</h2>
-        <nav class="navigatie.register">
-          <a href="index.html">Home</a>
-          <a href="login.php">Login</a>
-        </nav>
           <form action="logincontroller.php" method="post">
             <input type="hidden" name="type" value="register">
 

@@ -1,6 +1,6 @@
 <?php require 'php/header.php';?>
 
-<main class="background-img">
+<main>
 	<a href="" class="button centered">NU SPELEN !</a>
 </main>
 

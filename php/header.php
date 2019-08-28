@@ -21,7 +21,7 @@
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
+<body class="background-img">
   <header>
     <div class="navbar">
       <div class="container">

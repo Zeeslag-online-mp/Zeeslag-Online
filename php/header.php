@@ -25,9 +25,9 @@
   <header>
     <div class="navbar">
       <div class="container">
-      <h1><a href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>ZEESLAG</a></h1>
-      <p><a href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>HOME</a></p>
-      <p><a href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/login.php'?>>LOGIN</a>  OF  <a href=<?php echo 'http://'.$host.'/php/register.php'?>>MAAK EEN ACCOUNT AAN</a></p>
+        <h1><a href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>ZEESLAG</a></h1>
+        <p><a href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>HOME</a></p>
+        <p><a href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/login.php'?>>LOGIN</a>  OF  <a href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/register.php'?>>MAAK EEN ACCOUNT AAN</a></p>
       </div>
     </div>   
   </header>

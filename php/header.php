@@ -1,3 +1,5 @@
+<?php require 'config.php'?>
+
 <!-- Use ( require 'header.php' ) in document where you need the header -->
 
 <!DOCTYPE html>
@@ -9,12 +11,12 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="manifest" href=<?php echo 'http://'.$host.'/Zeeslag-Online/site.webmanifest'?>>
+  <link rel="apple-touch-icon" href=<?php echo 'http://'.$host.'/Zeeslag-Online/icon.png'?>>
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href=<?php echo 'http://'.$host.'/Zeeslag-Online/css/normalize.css'?>>
+  <link rel="stylesheet" href=<?php echo 'http://'.$host.'/Zeeslag-Online/css/main.css'?>>
 
   <meta name="theme-color" content="#fafafa">
 </head>
@@ -22,9 +24,9 @@
 <body>
   <header>
     <div class="navbar">
-      <h1><a href="../index.php">ZEESLAG</a></h1>
-      <p><a href="">HOME</a></p>
-      <p><a href="">LOGIN</a>  OF  <a href="">MAAK EEN ACCOUNT AAN</a></p>
+      <h1><a href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>ZEESLAG</a></h1>
+      <p><a href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>HOME</a></p>
+      <p><a href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/login.php'?>>LOGIN</a>  OF  <a href=<?php echo 'http://'.$host.'/php/register.php'?>>MAAK EEN ACCOUNT AAN</a></p>
     </div>   
   </header>
   <!--[if IE]>

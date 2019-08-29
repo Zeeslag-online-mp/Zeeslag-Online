@@ -21,18 +21,19 @@
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body class="background-img">
-  <header>
-      <div class="container">
-        <div class="navbar">
-        <h1><a class="header-titel" href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>ZEESLAG</a></h1>
-          <a class="header-link1" href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>HOME</a>
-          <a class="header-link2" href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/login.php'?>>LOGIN</a>
-          <p class="header-streepje">|</p>  
-          <a class="header-link3" href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/register.php'?>>REGISTER</a>
-        </div>
-      </div>  
-  </header>
+<body>
+  
+    <header>
+        <div class="container">
+          <div class="navbar">
+          <h1><a class="header-titel" href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>ZEESLAG</a></h1>
+            <a class="header-link1" href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>HOME</a>
+            <a class="header-link2" href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/login.php'?>>LOGIN</a>
+            <p class="header-streepje">|</p>  
+            <a class="header-link3" href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/register.php'?>>REGISTER</a>
+          </div>
+        </div>  
+    </header>
   <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->

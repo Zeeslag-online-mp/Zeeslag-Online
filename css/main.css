@@ -117,6 +117,12 @@ h1{
     margin: 0 auto;
 }
 
+
+/* ==================
+   HEADER
+   ================== */
+
+
 .header-link1:hover{
 	color: aqua;
 	transition: 1s;
@@ -131,8 +137,6 @@ h1{
 	color: aqua;
 	transition: 1s;
 }
-
-/* ------ HOMEPAGE ------ */
 
 header{
 	background: #8497B0;
@@ -179,9 +183,15 @@ header{
 	margin: 0;
 }
 
+
+/* ===============
+   HOMEPAGE
+   =============== */
+
+
 .background-img {
     background-image: url("../img/battleships-banner.jpg");
-    height: 100vh;
+    height: 89vh;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -193,6 +203,7 @@ header{
     background: #F89606;
     text-decoration: none;
     color: #fff;
+    border: 0;
 }
 
 .centered {
@@ -202,8 +213,6 @@ header{
     transform: translate(-50%, -50%);
 }
 
-/*
-GAME
 
 */
 span.no-js{
@@ -370,6 +379,44 @@ span.no-js{
     
 
 
+
+/* ===========================
+   Register Form
+   =========================== */
+
+
+input {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 12px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-sizing: border-box;
+}
+
+.two-side-page {
+	display: flex;
+}
+
+.left-side-page {
+	width: 40%;
+}
+
+.right-side-page {
+	width: 60%;
+}
+
+.submit-button {
+	margin-top: 15px;
+	float: right;
+}
+
+
+
+/* ============================
+   GAME
+   ============================ */
 
 /* ==========================================================================
    Helper classes

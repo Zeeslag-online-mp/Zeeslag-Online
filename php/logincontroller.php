@@ -15,69 +15,57 @@ require 'config.php';
 
 //login
 
-if ($_POST ['type'] === 'login'){
+if ( $_POST['type'] === 'login' ) {
 
-  $errormsg = '';
+  $errMsg = '';
 
-  //haal de date op van form
-  $email = $_POST ['email'];
-  $password = $_POST ['password'];
+  // Get data from FORM
+  $email = $_POST['email'];
+  $password = $_POST['password'];
 
-  //Als mail leeg is
-  if ($email = ''){
-    $errormsg = "Enter mail";
-  }
+  // als je geen email invult krijg je een error msg met enter een email
+  if($email == '')
+    $errMsg = 'Enter email';
+  //als je geen wachtwoord invult krijg je een melding vul een wachtwoord in
+  if($password == '')
+    $errMsg = 'Enter password';
 
-  // als de username leeg is
-  if ($username =''){
-    $errormsg = 'Enter your username';
-  }
-
-  //als de password leeg is
-  if ($password = ''){
-    $errormsg = 'Enter your password';
-  }
-
-  //als er geen fouten zijn
-  if ($errormsg = ''){
-
-    try{
-      $st = $db->prepare('SELECT id, email, username, password FROM users WHERE email = :email');
-      $st->execute(array(
-        'email' => $email
+  // als er geen error bericht is voer die deze code uit
+  if($errMsg == '') {
+    try {
+      $stmt = $db->prepare('SELECT id, email, password FROM users WHERE email = :email');
+      $stmt->execute(array(
+        ':email' => $email
       ));
-      $data = $st->fetch(PDO::FETCH_ASSOC);
-      // als de mail adderess niet besaat
-      if ($email == false){
-        $errormsg = "Deze mail adderess bestaat niet!";
+      $data = $stmt->fetch(PDO::FETCH_ASSOC);
+      // dit voer die uit als de email niet bestaad
+      if($email == false){
+        $errMsg = "User $email not found.";
       }
-      //als de inlog gegevens kloppen voert dit uit.
-      else{
-        //hier ga die wachtwoord controleren
-        if (password_verify($password, $data ['password'])){
+      // als je email goed is voer die deze code uit
+      else {
+        // hier check die het wachtwoord
+        if(password_verify($password, $data['password'])) {
 
-          //haalt de email uit de data base
-          $_SESSION['email'] = $data ['email'];
-          //haalt je id op
-          $_SESSION['id'] = $data ['id'];
-          //haalt je username op
-          $_SESSION['username'] = $data ['username'];
-
-          header("Location: register.php");
-          exit;
+          // daarna haal die je email op uit de database
+          $_SESSION['email'] = $data['email'];
+          // daarna haal die je id op
+          $_SESSION['id'] = $data['id'];
         }
-        else{
-          $errormsg = 'Acoount bestaat niet!';
-          header("Location: login.php?msg=$errormsg");
+        // als de account niet bestaad krijg je een melding
+        else {
+          $errMsg = 'Account bestaat niet of wachtwoord is verkeerd.';
+          header("Location: login.php?msg=$errMsg");
         }
       }
     }
-      //als account niet bestaat
-    catch (PDOException $e){
-      $errormsg = $e->getMessage();
+    catch(PDOException $e) {
+      $errMsg = $e->getMessage();
     }
   }
 
+
+  exit;
 }
 
 //register
@@ -94,7 +82,7 @@ if($_POST ['type'] === 'register'){
 
   //check of de mail echt is of niet
   if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    $message = "This is not a valid mail";
+    $message = "Dit is geen geldig mail";
     header("location: register.php?msg=$message");
     exit;
   }
@@ -122,10 +110,9 @@ if($_POST ['type'] === 'register'){
   //gaat checkem
   $countuser=$databasea->rowCount();
 
-  //als de email bestaad krijg je deze bericht
+  //als de email bestaat krijg je deze bericht
   if ($countmail >0){
     $message = 'Deze email bestaat al';
-    echo "<script type='text/javascript'>alert('$message');</script>";
 
     header("location: register.php?msg=$message");
     exit();
@@ -134,7 +121,7 @@ if($_POST ['type'] === 'register'){
   //check de username
   if ($countuser >0){
     $message = 'Deze gebruiker bestaat al';
-    echo "<script type='text/javascript'>alert('$message');</script>";
+
 
     header("location: register.php?msg=$message");
     exit();

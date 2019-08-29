@@ -9,7 +9,8 @@
 require 'config.php';
 
 if( isset($_GET['msg'])){
-  echo $_GET['msg'];
+  $msg = $_GET['msg'];
+  echo '<script>alert("'.$msg.'")</script>';
 }
 
 require 'header.php';

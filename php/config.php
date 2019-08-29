@@ -8,7 +8,7 @@
 
 $host = $_SERVER['HTTP_HOST']; // Used for responsive weblinks
 
-/*$dbName = 'zeeslag';
+$dbName = 'zeeslag';
 $dbHost = 'localhost';
 $dbPass = '';
 $dbUser = 'root';
@@ -27,4 +27,4 @@ $db ->setAttribute(
 
 if(session_id() == '' || !isset($_SESSION)){
   session_start();
-}*/
+}

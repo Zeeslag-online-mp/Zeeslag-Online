@@ -35,6 +35,8 @@
 	</div>
 </div>
 
+<script src="../app.js" >
 
+</script>
 
 <?php require 'footer.php'?>

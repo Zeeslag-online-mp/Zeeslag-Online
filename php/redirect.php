@@ -5,7 +5,7 @@ require 'header.php';
 <main class="background-img">
 
     <div class="container">
-        <div class="redirsect">
+        <div class="redirect">
             <p>
              Je moet eerst registreren of inloggen voordat je iets kan aanmaken.
             

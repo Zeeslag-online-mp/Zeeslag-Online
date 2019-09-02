@@ -237,6 +237,14 @@ span.no-js{
     color: #EEEEEE;
     position: center;
 }
+.instructions {
+    width: auto;
+    display: inline-block;
+    text-align: left;
+    margin: 50px;
+    padding-bottom: 19px;
+    background: #b3d4fc;
+}
 .game-container{
     position: relative;
     background: #b3d4fc;
@@ -313,6 +321,7 @@ span.no-js{
     .grid-container h2 {
         width: 430px;
         display: inline-block;
+        text-align: center;
     }
     
     .grid {
@@ -407,13 +416,9 @@ body {
 .footer-background {
     background: #8497B0;
     color: #fff;
-<<<<<<< Updated upstream
     right: 0;
     bottom: 0;
     left: 0;
-=======
-    height: 7vh;
->>>>>>> Stashed changes
 }
 
 .footer-content {
@@ -427,7 +432,10 @@ body {
     margin-left: 5px;
 }
 
-
+.redirect{
+    height: 500px;
+    background:  #b3d4fc;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

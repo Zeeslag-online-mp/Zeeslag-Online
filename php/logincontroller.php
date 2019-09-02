@@ -22,25 +22,34 @@ if ( $_POST['type'] === 'login' ) {
   // Get data from FORM
   $email = $_POST['email'];
   $password = $_POST['password'];
+  $username = $_POST ['email'];
 
   // als je geen email invult krijg je een error msg met enter een email
   if($email == '')
-    $errMsg = 'Enter email';
+    $errMsg = 'Voer een e-mail in';
   //als je geen wachtwoord invult krijg je een melding vul een wachtwoord in
   if($password == '')
-    $errMsg = 'Enter password';
+    $errMsg = 'Voer een wachtwoord in';
+
+  if($username == ''){
+    $errMsg = 'Voer een gebruiksnaam in';
+  }
 
   // als er geen error bericht is voer die deze code uit
   if($errMsg == '') {
     try {
-      $stmt = $db->prepare('SELECT id, email, password FROM users WHERE email = :email');
+      $stmt = $db->prepare('SELECT id, email, username , password FROM users WHERE email = :email OR username = :email');
       $stmt->execute(array(
-        ':email' => $email
+        ':email' => $email,
+        ':username' => $username
       ));
       $data = $stmt->fetch(PDO::FETCH_ASSOC);
       // dit voer die uit als de email niet bestaad
       if($email == false){
         $errMsg = "User $email not found.";
+      }
+      if($username == false){
+        $errMsg = "User $username not found";
       }
       // als je email goed is voer die deze code uit
       else {
@@ -49,6 +58,9 @@ if ( $_POST['type'] === 'login' ) {
 
           // daarna haal die je email op uit de database
           $_SESSION['email'] = $data['email'];
+
+          $_SESSION['username'] = $data['username'];
+
           // daarna haal die je id op
           $_SESSION['id'] = $data['id'];
 

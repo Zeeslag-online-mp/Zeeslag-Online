@@ -29,7 +29,7 @@ require 'header.php';
           <input type="hidden" name="type" value="login">
 
           <label for="email"><b class="login-email">Gebruikersnaam/email</b></label>
-          <input class="login_field" type="text" placeholder="Typ uw gebruikersnaam of email" name="email"required>
+          <input class="login_field" type="text" placeholder="Typ uw gebruikersnaam of email" name="email" required>
 
           <label for="psw"><b class="login-password">Wachtwoord</b></label>
           <input class="login_field" type="password" placeholder="Typ uw wachtwoord" name="password" required>

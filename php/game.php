@@ -1,4 +1,8 @@
-<?php require 'header.php'?>
+<?php require 'header.php'
+
+
+
+?>
 <main class="background-img">
 	<div class="container"> 
 	

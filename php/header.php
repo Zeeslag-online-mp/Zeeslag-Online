@@ -44,11 +44,11 @@
                 <div class='navbar-items-right'>
                   <p>
                   <div class='navbar-item'>
-                    <a href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/login.php'?>LOGIN</a>
+                    <a href= 'http://'.$host.'/Zeeslag-Online/php/login.php'>LOGIN</a>
                   </div>
                     |
                   <div class='navbar-item'>
-                    <a  href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/register.php'?>REGISTER</a>
+                    <a  href= 'http://'.$host.'/Zeeslag-Online/php/register.php'>REGISTER</a>
                 	</div>
                     
                   </p>

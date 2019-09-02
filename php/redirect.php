@@ -7,7 +7,7 @@ require 'header.php';
     <div class="container">
         <div class="redirect container">
             <p>
-             Je moet eerst registreren of inloggen voordat je iets kan aanmaken.
+             Je moet eerst registreren of inloggen voordat je kan spelen.
             
          </p>
             <a href="register.php">Klik hier om een acount te maken.</a>

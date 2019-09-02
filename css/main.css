@@ -407,9 +407,13 @@ body {
 .footer-background {
     background: #8497B0;
     color: #fff;
+<<<<<<< Updated upstream
     right: 0;
     bottom: 0;
     left: 0;
+=======
+    height: 7vh;
+>>>>>>> Stashed changes
 }
 
 .footer-content {

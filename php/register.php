@@ -25,7 +25,7 @@ require 'header.php';
                 <input type="password" placeholder="Typ hier uw wachtwoord" name="password" required>
 
                 <label for="psw"><b class="register-password-reapeat">Voer opnieuw wachtwoord in</b></label>
-                <input type="password" placeholder="Typ hier uw wachtwoord" name="password-confirm" required>
+                <input type="password" placeholder="Typ hier uw wachtwoord" name="passwordconfirm" required>
 
                 <button class="button submit-button" type="submit" value="register">Maak aan</button>
             </form>

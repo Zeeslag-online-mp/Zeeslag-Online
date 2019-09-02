@@ -206,6 +206,10 @@ wat moet er hier gebeuren?
  "isLegal" zo heb ik er alvast ingezet de rest zit er al zo in dan komt alleen nog het online gedeelte maar dat moet aboker doen 
 */
 
+
+
+
+
 // Click handler for the Rotate Ship button
 Game.prototype.toggleRotation = function(e) {
 	// Toggle rotation direction

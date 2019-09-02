@@ -240,7 +240,7 @@ span.no-js{
 .game-container{
     position: relative;
     background: #b3d4fc;
-    
+    text-align: center;
     padding-bottom: 50px;
 }
 #roster-sidebar, #stats-sidebar, #restart-sidebar {

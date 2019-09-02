@@ -123,27 +123,12 @@ h1{
    ================== */
 
 
-.header-link1:hover{
-	color: aqua;
-	transition: 1s;
-}
-
-.header-link2:hover{
-	color: aqua;
-	transition: 1s;
-}
-
-.header-link3:hover{
-	color: aqua;
-	transition: 1s;
-}
-
-header{
+header {
 	background: #8497B0;
 }
 
 
-.navbar{
+.navbar {
 	display: flex;
     justify-content: space-between;
 }
@@ -164,6 +149,7 @@ header{
     margin-bottom: auto;
 }
  
+
 
 /* ===============
    HOMEPAGE
@@ -406,6 +392,20 @@ span.no-js{
     .current-step {
         font-weight: bold;
     }
+
+
+/* =================================
+   FOOTER
+   ================================= */
+
+
+.footer-background {
+    background: #8497B0;
+    color: #fff;
+    height: 5vh;
+}
+
+
 
 
 

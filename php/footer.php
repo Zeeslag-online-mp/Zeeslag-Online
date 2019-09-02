@@ -1,5 +1,13 @@
 <!-- Use ( require 'footer.php' ) in document where you need the footer -->
 
+<footer>
+  <div class="footer-background">
+    <div class="container">
+      <p>© <?php echo date("Y"); ?></p>
+    </div>
+  </div>
+</footer>
+
 <?php
 
 // Check if there is a message to display

@@ -76,6 +76,7 @@ if($_POST ['type'] === 'register'){
   $email = $_POST['email'];
   $username= $_POST ['username'];
   $password = $_POST['password'];
+  $passwordconfirm = $_POST['passwordconfirm'];
 
   
   //password hashen
@@ -128,7 +129,7 @@ if($_POST ['type'] === 'register'){
     exit();
   }
 
-  if ($_POST['password'] != $_POST['passwordconfirm']) {
+  if ($_POST['password'] != $passwordconfirm) {
 
     $message = "Wachtwoord komt niet overeen!";
     echo "<script type='text/javascript'>alert('$message');</script>";
@@ -144,7 +145,7 @@ if($_POST ['type'] === 'register'){
   }
   else{
     //hier check die of de wachtwoorden overeen komen
-    if ($_POST['password'] == $_POST['passwordconfirm']){
+    if ($password == $passwordconfirm){
 
       $sql = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
       $prepare = $db->prepare($sql);

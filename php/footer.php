@@ -17,7 +17,7 @@
             <li><a href="">Info</a></li>
             <li><a href="">Over Ons</a></li>
             <li><a href="">Doneren</a></li>
-            <li><a href="www.affortech.nl/portfolio">Portfolio</a></li>
+            <li><a href="https://affortech.nl/portfolio/">Portfolio</a></li>
           </ul>
         </div>
 

@@ -76,6 +76,7 @@ if($_POST ['type'] === 'register'){
   $email = $_POST['email'];
   $username= $_POST ['username'];
   $password = $_POST['password'];
+
   
   //password hashen
   $passwordhashed = password_hash($password, PASSWORD_DEFAULT);

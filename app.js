@@ -29,10 +29,7 @@ function Stats(){
 	this.totalHits = parseInt(localStorage.getItem('totalHits'), 10) || 0;
 	this.gamesPlayed = parseInt(localStorage.getItem('gamesPlayed'), 10) || 0;
 	this.gamesWon = parseInt(localStorage.getItem('gamesWon'), 10) || 0;
-	this.uuid = localStorage.getItem('uuid') || this.createUUID();
-	if (DEBUG_MODE) {
-		this.skipCurrentGame = true;
-	}
+	
 }
 Stats.prototype.incrementShots = function() {
 	this.shotsTaken++;
@@ -728,6 +725,7 @@ Tutorial.prototype.nextStep = function() {
 	}
 };
 
+var gameTutorial = new Tutorial();
 
 	// Start the game
 	var mainGame = new Game(10);

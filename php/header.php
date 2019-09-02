@@ -1,4 +1,9 @@
-<?php require 'config.php'?>
+<?php require 'config.php'
+
+
+
+
+?>
 
 <!-- Use ( require 'header.php' ) in document where you need the header -->
 
@@ -22,19 +27,36 @@
 </head>
 
 <body>
+  <div class="navbar-item">
+
+  </div>
   
     <header>
         <div class="container">
           <div class="navbar">
-            <h1><a class="navbar-item" href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>ZEESLAG</a></h1>
-            <a class="navbar-item" href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>HOME</a>
-            <div class="navbar-items-right">
-              <p>
-                <a class="navbar-item" href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/login.php'?>>LOGIN</a>
-                |
-                <a class="navbar-item" href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/register.php'?>>REGISTER</a>
-              </p>
-            </div>
+          <h1><a class='navbar-item' href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>> ZEESLAG</a></h1>
+                <a class='navbar-item' href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>> HOME</a>
+            <?php if(isset($_SESSION['id'])){
+                  echo 
+                  " <a class= 'navbar-item' href='php/logout.php'>Uitloggen</a>";
+              }else{
+                echo " 
+                <div class='navbar-items-right'>
+                  <p>
+                  <div class='navbar-item'>
+                    <a href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/login.php'?>LOGIN</a>
+                  </div>
+                    |
+                  <div class='navbar-item'>
+                    <a  href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/register.php'?>REGISTER</a>
+                	</div>
+                    
+                  </p>
+                </div>";
+              }
+            
+            ?>
+           
           </div>
         </div>  
     </header>

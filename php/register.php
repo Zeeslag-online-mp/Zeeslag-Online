@@ -1,18 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Gebruiker
- * Date: 26-8-2019
- * Time: 11:26
- */
 
 require 'config.php';
-
-if( isset($_GET['msg'])){
-  $msg = $_GET['msg'];
-  echo '<script>alert("'.$msg.'")</script>';
-}
-
 require 'header.php';
 
 ?>
@@ -21,29 +9,29 @@ require 'header.php';
   <div class="register">
     <div class="container">
       <div class="background-register">
-        <h2>Register Zeeslag</h2>
+        <h2>Registreren</h2>
           <div class="two-side-page">
             <div class="left-side-page">
               <form class="form" action="logincontroller.php" method="post">
                 <input type="hidden" name="type" value="register">
 
+                <label for="username"><b class="register-username">Gebruikersnaam</b></label>
+                <input type="text" placeholder="Typ hier uw gebruikersnaam" name="username" id="username" required>
+
                 <label for="email"><b class="register-email">Email</b></label>
-                <input type="email" placeholder="Enter Email" name="email" id="email">
+                <input type="email" placeholder="Typ hier uw email" name="email" id="email" required>
 
-                <label for="username"><b class="register-username">Username</b></label>
-                <input type="text" placeholder="Enter username" name="username" id="username">
+                <label for="psw"><b class="register-password">Wachtwoord</b></label>
+                <input type="password" placeholder="Typ hier uw wachtwoord" name="password" required>
 
-                <label for="psw"><b class="register-password">Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password">
+                <label for="psw"><b class="register-password-reapeat">Voer opnieuw wachtwoord in</b></label>
+                <input type="password" placeholder="Typ hier uw wachtwoord" name="password-confirm" required>
 
-                <label for="psw"><b class="register-password-reapeat">Voer opnieuw Password in</b></label>
-                <input type="password" placeholder="Enter password again" name="passwordconfirm">
-
-                <button class="button submit-button" type="submit" value="Create new contact">Maak aan</button>
+                <button class="button submit-button" type="submit" value="register">Maak aan</button>
             </form>
           </div>
           <div class="right-side-page">
-
+            <img class="battleship-img" src="../img/battleship-blueprint-1.jpg" alt="Aanvalsschip foto"/>
           </div>
         </div>
       </div>
@@ -52,3 +40,5 @@ require 'header.php';
 </main>
 
 </body>
+
+<?php require 'footer.php'; ?>

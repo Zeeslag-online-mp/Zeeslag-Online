@@ -22,18 +22,25 @@ require 'header.php';
 <main>
 <div class="login">
   <div class="container">
-    <h2>Login Zeeslag</h2>
-    <form action="logincontroller.php" method="post">
-      <input type="hidden" name="type" value="login">
+    <div class="two-side-page">
+      <div class="left-side-page">
+        <h2>Inloggen</h2>
+        <form action="logincontroller.php" method="post">
+          <input type="hidden" name="type" value="login">
 
-      <label for="email"><b class="login-email">Email</b></label>
-      <input class="login_field" type="text" placeholder="Enter Email or Username" name="email"required>
+          <label for="email"><b class="login-email">Gebruikersnaam/email</b></label>
+          <input class="login_field" type="text" placeholder="Typ uw gebruikersnaam of email" name="email"required>
 
-      <label for="psw"><b class="login-password">Password</b></label>
-      <input class="login_field" type="password" placeholder="Enter Password" name="password" required>
-      
-      <input type="submit" value="Login" class="login-a">
-    </form>
+          <label for="psw"><b class="login-password">Wachtwoord</b></label>
+          <input class="login_field" type="password" placeholder="Typ uw wachtwoord" name="password" required>
+          
+          <button type="submit" class="button submit-button" value="login" class="login-a">Login</button>
+        </form>
+      </div>
+      <div class="right-side-page">
+        <img class="battleship-img" src="../img/battleship-blueprint-2.jpg" alt="Aanvalsschip foto"/>
+      </div>
+    </div>
   </div>
 </div>
 </main>

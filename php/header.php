@@ -26,11 +26,15 @@
     <header>
         <div class="container">
           <div class="navbar">
-          <h1><a class="header-titel" href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>ZEESLAG</a></h1>
-            <a class="header-link1" href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>HOME</a>
-            <a class="header-link2" href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/login.php'?>>LOGIN</a>
-            <p class="header-streepje">|</p>  
-            <a class="header-link3" href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/register.php'?>>REGISTER</a>
+            <h1><a class="navbar-item" href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>ZEESLAG</a></h1>
+            <a class="navbar-item" href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>>HOME</a>
+            <div class="navbar-items-right">
+              <p>
+                <a class="navbar-item" href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/login.php'?>>LOGIN</a>
+                |
+                <a class="navbar-item" href=<?php echo 'http://'.$host.'/Zeeslag-Online/php/register.php'?>>REGISTER</a>
+              </p>
+            </div>
           </div>
         </div>  
     </header>

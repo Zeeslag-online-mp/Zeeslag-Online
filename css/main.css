@@ -400,15 +400,35 @@ span.no-js{
    FOOTER
    ================================= */
 
+footer {
+    /*position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;*/
+}
+
+body {
+    position: relative;
+}
 
 .footer-background {
     background: #8497B0;
     color: #fff;
-    height: 5vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
 
-
+.footer-link-list {
+    list-style-type: '- ';
+    padding-left: 15px;
+    margin-left: 5px;
+}
 
 
 /* ==========================================================================

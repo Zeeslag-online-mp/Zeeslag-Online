@@ -3,7 +3,25 @@
 <footer>
   <div class="footer-background">
     <div class="container">
-      <p>© <?php echo date("Y"); ?></p>
+      <div class="footer-content">
+
+        <div>
+          <p>© <?php echo date("Y"); ?></p>
+          <p>Developed by [team naam]</p>
+        </div>
+
+        <div>
+          <h4>Links</h4>
+          <ul class="footer-link-list">
+            <li><a href="">Home</a></li>
+            <li><a href="">Info</a></li>
+            <li><a href="">Over Ons</a></li>
+            <li><a href="">Doneren</a></li>
+            <li><a href="affortech.nl/portfolio">Portfolio</a></li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </div>
 </footer>

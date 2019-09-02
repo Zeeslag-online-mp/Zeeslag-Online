@@ -1,4 +1,4 @@
-<?php
+  <?php
 /**
  * Created by PhpStorm.
  * User: Gebruiker
@@ -51,6 +51,9 @@ if ( $_POST['type'] === 'login' ) {
           $_SESSION['email'] = $data['email'];
           // daarna haal die je id op
           $_SESSION['id'] = $data['id'];
+
+          header("Location: ../index.php");
+          exit();
         }
         // als de account niet bestaad krijg je een melding
         else {

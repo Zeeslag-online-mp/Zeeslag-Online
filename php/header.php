@@ -35,7 +35,7 @@
             <?php 
 
             if(isset($_SESSION['id'])){
-                  echo "<a class= 'navbar-item' href='php/logout.php'>Uitloggen</a>";
+                  echo "<a class= 'navbar-item' href='http://$host/Zeeslag-Online/php/logout.php'>Uitloggen</a>";
               }else{
                 echo " 
                 <div class='navbar-items-right'>

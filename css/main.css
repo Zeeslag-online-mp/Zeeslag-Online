@@ -133,7 +133,7 @@ header {
     justify-content: space-between;
 }
 
-.navbar p, a {
+.navbar p, a, span {
     color: #fff;
     text-decoration: none;
     margin: 0;
@@ -399,13 +399,6 @@ span.no-js{
 /* =================================
    FOOTER
    ================================= */
-
-footer {
-    /*position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;*/
-}
 
 body {
     position: relative;

@@ -1,9 +1,4 @@
-<?php require 'config.php'
-
-
-
-
-?>
+<?php require 'config.php';?>
 
 <!-- Use ( require 'header.php' ) in document where you need the header -->
 
@@ -35,24 +30,24 @@
         <div class="container">
           <div class="navbar">
           <h1><a class='navbar-item' href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>> ZEESLAG</a></h1>
-                <a class='navbar-item' href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>> HOME</a>
-            <?php if(isset($_SESSION['id'])){
-                  echo 
-                  " <a class= 'navbar-item' href='php/logout.php'>Uitloggen</a>";
+            <a class='navbar-item' href=<?php echo 'http://'.$host.'/Zeeslag-Online/index.php'?>> HOME</a>
+
+            <?php 
+
+            if(isset($_SESSION['id'])){
+                  echo "<a class= 'navbar-item' href='php/logout.php'>Uitloggen</a>";
               }else{
                 echo " 
                 <div class='navbar-items-right'>
-                  <p>
                   <div class='navbar-item'>
-                    <a href= 'http://'.$host.'/Zeeslag-Online/php/login.php'>LOGIN</a>
+                    <a href= 'http://$host/Zeeslag-Online/php/login.php'>LOGIN</a>
                   </div>
-                    |
+                    <span>|</span>
                   <div class='navbar-item'>
-                    <a  href= 'http://'.$host.'/Zeeslag-Online/php/register.php'>REGISTER</a>
+                    <a  href='http://$host/Zeeslag-Online/php/register.php'>REGISTER</a>
                 	</div>
-                    
-                  </p>
-                </div>";
+                </div>
+                ";
               }
             
             ?>

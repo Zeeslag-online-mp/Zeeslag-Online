@@ -115,6 +115,7 @@ h1{
 .container{
     width: 1280px;
     margin: 0 auto;
+    padding: 25px;
 }
 
 
@@ -441,9 +442,17 @@ body {
 }
 
 .redirect{
-    height: 500px;
+    height: 160px;
+    width: 260px;
     background:  #b3d4fc;
+    text-align: center;
+    margin-top: 220px;
 }
+.redirect p{
+    margin: 0;
+}
+    
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

@@ -1,11 +1,22 @@
-<?php require 'header.php'
+<?php require 'header.php';
 
-
+if(!isset($_SESSION['id'])){
+    header('Location: redirect.php');
+    exit;
+}
 
 ?>
 <main class="background-img">
 	<div class="container"> 
-	
+		
+		<ol class="instructions">
+			<p>How to play</p>
+			<li id="step1">Select your ships from the left-hand side</li>
+			<li id="step2">Place your ships on your map</li>
+			<li id="step3">Click on the cells of the enemy's map<br>
+			to find and destroy all five enemy ships</li>
+			<li id="step4">You need to wait on the enemy to shoot at his cell before shooting again</li>
+		</ol>
 	<div class="game-container">
 			<div id="restart-sidebar" class="hidden">
 				<h2>Try Again</h2>

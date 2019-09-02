@@ -40,11 +40,11 @@
                 echo " 
                 <div class='navbar-items-right'>
                   <div class='navbar-item'>
-                    <a href= 'http://$host/Zeeslag-Online/php/login.php'>LOGIN</a>
+                    <a class='navbar-item-login' href= 'http://$host/Zeeslag-Online/php/login.php'>LOGIN</a>
                   </div>
                     <span>|</span>
                   <div class='navbar-item'>
-                    <a  href='http://$host/Zeeslag-Online/php/register.php'>REGISTER</a>
+                    <a class='navbar-item-register' href='http://$host/Zeeslag-Online/php/register.php'>REGISTER</a>
                 	</div>
                 </div>
                 ";

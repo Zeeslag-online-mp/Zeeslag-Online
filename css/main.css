@@ -150,6 +150,14 @@ header {
     margin-top: auto;
     margin-bottom: auto;
 }
+
+.navbar-item-login {
+    margin-right: 10px;
+}
+
+.navbar-item-register {
+    margin-left: 10px;
+}
  
 
 

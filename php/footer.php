@@ -7,7 +7,7 @@
 
         <div>
           <p>© <?php echo date("Y"); ?></p>
-          <p>Developed by [team naam]</p>
+          <p>Developed by Je Moeders Studio's</p>
         </div>
 
         <div>

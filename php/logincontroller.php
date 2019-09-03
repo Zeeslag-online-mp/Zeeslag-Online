@@ -83,17 +83,15 @@ if ( $_POST['type'] === 'login' ) {
   exit;
 }
 
-//register
 
+// Register
 if($_POST ['type'] === 'register'){
 
-  //variabel
   $email = $_POST['email'];
   $username= $_POST ['username'];
   $password = $_POST['password'];
   $passwordconfirm = $_POST['passwordconfirm'];
 
-  
   //password hashen
   $passwordhashed = password_hash($password, PASSWORD_DEFAULT);
 
@@ -162,13 +160,20 @@ if($_POST ['type'] === 'register'){
     //hier check die of de wachtwoorden overeen komen
     if ($password == $passwordconfirm){
 
-      $sql = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
+      $sql = "INSERT INTO users (email, username, password, activated) VALUES (:email, :username, :password, :activated)";
       $prepare = $db->prepare($sql);
       $prepare->execute([
         ':email' => $email,
         ':username' => $username,
         ':password' => $passwordhashed
       ]);
+
+      // Send thank you mail to user
+      $to = $email;
+      $subject = "Bedankt | Zeeslag Online";
+      $message = "Bedankt voor het aanmaken van een account bij Zeeslag Online!";
+      mail($to, $subject, $message);
+
       $msg = "Account is succesvol aangemaakt!";
       header("location: login.php?msg=$msg");
       exit;
@@ -178,4 +183,5 @@ if($_POST ['type'] === 'register'){
       header("location: register.php?msg=$messagefail");
     }
   }
+
 }

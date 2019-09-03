@@ -5,6 +5,7 @@ if(!isset($_SESSION['id'])){
     exit;
 }
 
+
 ?>
 <main class="background-img">
 	<div class="container"> 
@@ -49,7 +50,7 @@ if(!isset($_SESSION['id'])){
 			
 			<div class="grid-container">
 				<h2>Your Fleet</h2>
-				<div class="grid human-player"><span class="no-js">Please enable JavaScript to play this game</span></div>
+				<div class="grid human-player" name="human-player"><span class="no-js">Please enable JavaScript to play this game</span></div>
 			</div>
 			
 			<div class="grid-container">
@@ -66,5 +67,6 @@ if(!isset($_SESSION['id'])){
 <script src="../app.js" >
 
 </script>
+
 
 <?php require 'footer.php'?>

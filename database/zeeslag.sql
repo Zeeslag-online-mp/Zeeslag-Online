@@ -22,6 +22,10 @@ SET time_zone = "+00:00";
 -- Database: `zeeslag`
 --
 
+CREATE DATABASE `zeeslag`;
+
+USE `zeeslag`;
+
 -- --------------------------------------------------------
 
 --
@@ -38,9 +42,6 @@ CREATE TABLE `users` (
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
-
-INSERT INTO `users` (`id`, `email`, `username`, `password`) VALUES
-(1, 'batin@live.nl', 'Noobl', '$2y$10$.DVk0.2s7TsAFCN7fQdic.iRry7j.zjVfWPmuwk6lbQrNquFBkS6q');
 
 --
 -- Indexen voor geëxporteerde tabellen

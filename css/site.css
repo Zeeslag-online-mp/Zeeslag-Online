@@ -5,9 +5,9 @@
     }
 }
 
-html, body, .container {
+html, body, {
     height: 100%;
-    background-color: #f9f9f9;
+   
 }
 .container {
     display: table;

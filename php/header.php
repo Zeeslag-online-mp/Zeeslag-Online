@@ -17,6 +17,7 @@
 
   <link rel="stylesheet" href=<?php echo 'http://'.$host.'/Zeeslag-Online/css/normalize.css'?>>
   <link rel="stylesheet" href=<?php echo 'http://'.$host.'/Zeeslag-Online/css/main.css'?>>
+  <link rel="stylesheet" href=<?php echo 'http://'.$host.'/Zeeslag-Online/css/site.css'?>>
 
   <meta name="theme-color" content="#fafafa">
 </head>

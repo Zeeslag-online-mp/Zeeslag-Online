@@ -38,19 +38,19 @@
 	this.playerGrid = playerGrid;
     this.player = player;
     switch(this.type){
-        case CONST.AVAILABLE_SHIPS[0]:
+        case availableShips[0]:
 			this.shipLength = 2;
 			break;
-		case CONST.AVAILABLE_SHIPS[1]:
+		case availableShips[1]:
 			this.shipLength = 3;
 			break;
-		case CONST.AVAILABLE_SHIPS[2]:
+		case availableShips[2]:
 			this.shipLength = 3;
 			break;
-		case CONST.AVAILABLE_SHIPS[3]:
+		case availableShips[3]:
 			this.shipLength = 4;
 			break;
-		case CONST.AVAILABLE_SHIPS[4]:
+		case availableShips[4]:
 			this.shipLength = 5;
 			break;
 		default:

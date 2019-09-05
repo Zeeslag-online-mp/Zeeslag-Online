@@ -5,11 +5,11 @@
         <div class="player">
         <div class="fleet" id="fleet">
             <ul>
-                <li>Patrol Boat</li>
-                <li>Destroyer</li>
-                <li>Cruiser</li>
-                <li>Battleship</li>
-                <li>Carrier</li>
+                <li id="Patrol Boat">Patrol Boat</li>
+                <li id="Destroyer">Destroyer</li>
+                <li id="Cruiser">Cruiser</li>
+                <li id="Battleship">Battleship</li>
+                <li id="Carrier">Carrier</li>
             </ul>
         </div>
         <div id="grid-myplayer"></div>

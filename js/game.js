@@ -12,7 +12,7 @@
     function Game(){
         DrawGrids();
     }
-    
+
     let board = new Array(100).fill(null);
     console.log(board);
     function DrawGrids(){
@@ -21,7 +21,7 @@
             cell.classList.add('cell-'+i);
             gameBoardPlayer.appendChild(cell);
         }
-        
+
         for (let i = 1; i <= 100; i++) {
             var cell = document.createElement("div")
             cell.classList.add('cell-'+i);
@@ -29,9 +29,7 @@
         }
     }
 
-    Game.prototype.Rosterlistener{
-        ;
-    }
+
  function Ship(type, playerGrid, player){
     this.damage = 0;
 	this.type = type;
@@ -56,12 +54,12 @@
 		default:
 			this.shipLength = 3;
             break;
-        
+
     }
     this.maxDamage = this.shipLength;
 	this.sunk = false;
 
 
- }   
+ }
     var mainGame = new Game();
 })();

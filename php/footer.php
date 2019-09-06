@@ -7,7 +7,7 @@
 
         <div>
           <p>© <?php echo date("Y"); ?></p>
-          <p>Developed by Je Moeders Studio's</p>
+          <p>Developed by us!</p>
         </div>
 
         <div>

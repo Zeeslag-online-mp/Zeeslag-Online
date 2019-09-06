@@ -29,9 +29,6 @@
         }
     }
 
-    Game.prototype.Rosterlistener{
-        
-    }
  function Ship(type, playerGrid, player){
     this.damage = 0;
 	this.type = type;

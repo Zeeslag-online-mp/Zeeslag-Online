@@ -160,7 +160,7 @@ if($_POST ['type'] === 'register'){
     //hier check die of de wachtwoorden overeen komen
     if ($password == $passwordconfirm){
 
-      $sql = "INSERT INTO users (email, username, password, activated) VALUES (:email, :username, :password, :activated)";
+      $sql = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
       $prepare = $db->prepare($sql);
       $prepare->execute([
         ':email' => $email,

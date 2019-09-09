@@ -256,6 +256,15 @@ input {
         text-align: center;
         padding: 0;
     }
+
+    .fleet li{
+        margin: 0.5em 0;
+    }
+    .fleet li:hover {
+        color: #aaa;
+        cursor: pointer;
+    }
+
    .game-container{
        display: flex;
        margin: 0 auto;

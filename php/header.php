@@ -52,7 +52,7 @@
               }
 
               // Show friend request (if available)
-              $id = 100;//$_SESSION['id'];
+              $id = $_SESSION['id'];
 
               $sql = "SELECT * FROM `game_request` WHERE `send_to` = :id";
               $prepare = $db->prepare($sql);
@@ -74,15 +74,23 @@
 
                     $player = $prepare->fetch(PDO::FETCH_ASSOC);
 
-                    $confirm = confirm("$player['username'] heeft je uitgenodigt. Wil je meedoen?");
+                    echo '
+  
+                      <script>
 
-                    if ($confirm) {
+                        var confirm = confirm("'.$player["username"].' heeft je uitgenodigt. Wil je deze accepteren?")
 
-                        alert("Geaccepteerd");
-                    }
-                    else {
-                        alert("Oke dan niet");
-                    }
+                        if (confirm) {
+                          window.location.href = "http://'.$host.'/Zeeslag-Online/php/friends-controller.php?accept='.$player["username"].'";
+                        }
+                        else {
+
+                        }
+
+                      </script>
+
+                    ';
+
                   }
               }
             

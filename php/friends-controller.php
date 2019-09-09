@@ -56,3 +56,17 @@ else if (isset($_GET['request'])) {
 	echo json_encode($users); // Echo it to the page so you can use it in JavaScript function
 
 }
+else if (isset($_GET['accept'])) {
+
+	$_SESSION['accept'] = $_GET['accept'];
+
+	$id = $_SESSION['id'];
+
+	$sql = "DELETE FROM `game_request` WHERE `send_to` = :id;";
+	$prepare = $db->prepare($sql);
+	$prepare->execute([
+		':id' => $_SESSION['id']
+	]);
+
+	header("Location: http://$host/Zeeslag-Online/php/game.php");
+}

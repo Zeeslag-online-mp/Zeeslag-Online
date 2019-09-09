@@ -50,6 +50,41 @@
                 </div>
                 ";
               }
+
+              // Show friend request (if available)
+              $id = 100;//$_SESSION['id'];
+
+              $sql = "SELECT * FROM `game_request` WHERE `send_to` = :id";
+              $prepare = $db->prepare($sql);
+              $prepare->execute([
+                    ':id' => $id
+              ]);
+
+              $invites = $prepare->fetchAll(PDO::FETCH_ASSOC);
+
+              if (!empty($invites)) {
+
+                  foreach ($invites as $invite) {
+
+                    $sql = "SELECT * FROM `users` WHERE `id` = :player_id;";
+                    $prepare = $db->prepare($sql);
+                    $prepare->execute([
+                        ':player_id' => $invite['id']
+                    ]);
+
+                    $player = $prepare->fetch(PDO::FETCH_ASSOC);
+
+                    $confirm = confirm("$player['username'] heeft je uitgenodigt. Wil je meedoen?");
+
+                    if ($confirm) {
+
+                        alert("Geaccepteerd");
+                    }
+                    else {
+                        alert("Oke dan niet");
+                    }
+                  }
+              }
             
             ?>
            

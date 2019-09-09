@@ -37,6 +37,50 @@
 
             if(isset($_SESSION['id'])){
                   echo "<a class= 'navbar-item' href='http://$host/Zeeslag-Online/php/logout.php'>Uitloggen</a>";
+
+                  // Show friend request (if available)
+                  $id = $_SESSION['id'];
+
+                  $sql = "SELECT * FROM `game_request` WHERE `send_to` = :id";
+                  $prepare = $db->prepare($sql);
+                  $prepare->execute([
+                        ':id' => $id
+                  ]);
+
+                  $invites = $prepare->fetchAll(PDO::FETCH_ASSOC);
+
+                  if (!empty($invites)) {
+
+                      foreach ($invites as $invite) {
+
+                        $sql = "SELECT * FROM `users` WHERE `id` = :player_id;";
+                        $prepare = $db->prepare($sql);
+                        $prepare->execute([
+                            ':player_id' => $invite['id']
+                        ]);
+
+                        $player = $prepare->fetch(PDO::FETCH_ASSOC);
+
+                        echo '
+      
+                          <script>
+
+                            var confirm = confirm("'.$player["username"].' heeft je uitgenodigt. Wil je deze accepteren?")
+
+                            if (confirm) {
+                              window.location.href = "http://'.$host.'/Zeeslag-Online/php/friends-controller.php?accept='.$player["username"].'";
+                            }
+                            else {
+
+                            }
+
+                          </script>
+
+                        ';
+
+                      }
+                  }
+
               }else{
                 echo " 
                 <div class='navbar-items-right'>
@@ -49,49 +93,6 @@
                 	</div>
                 </div>
                 ";
-              }
-
-              // Show friend request (if available)
-              $id = $_SESSION['id'];
-
-              $sql = "SELECT * FROM `game_request` WHERE `send_to` = :id";
-              $prepare = $db->prepare($sql);
-              $prepare->execute([
-                    ':id' => $id
-              ]);
-
-              $invites = $prepare->fetchAll(PDO::FETCH_ASSOC);
-
-              if (!empty($invites)) {
-
-                  foreach ($invites as $invite) {
-
-                    $sql = "SELECT * FROM `users` WHERE `id` = :player_id;";
-                    $prepare = $db->prepare($sql);
-                    $prepare->execute([
-                        ':player_id' => $invite['id']
-                    ]);
-
-                    $player = $prepare->fetch(PDO::FETCH_ASSOC);
-
-                    echo '
-  
-                      <script>
-
-                        var confirm = confirm("'.$player["username"].' heeft je uitgenodigt. Wil je deze accepteren?")
-
-                        if (confirm) {
-                          window.location.href = "http://'.$host.'/Zeeslag-Online/php/friends-controller.php?accept='.$player["username"].'";
-                        }
-                        else {
-
-                        }
-
-                      </script>
-
-                    ';
-
-                  }
               }
             
             ?>

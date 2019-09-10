@@ -36,10 +36,21 @@
             <?php 
 
             if(isset($_SESSION['id'])){
-                  echo "<a class= 'navbar-item' href='http://$host/Zeeslag-Online/php/logout.php'>Uitloggen</a>";
+
+                  echo " 
+                    <div class='navbar-items-right'>
+                      <div class='navbar-item'>
+                        <a class='navbar-item-login' href= 'http://$host/Zeeslag-Online/php/logout.php'>UITLOGGEN</a>
+                      </div>
+                        <span>|</span>
+                      <div class='navbar-item'>
+                        <a class='navbar-item-register' href='http://$host/Zeeslag-Online/php/profile.php'>PROFIEL</a>
+                      </div>
+                    </div>
+                  ";
 
                   // Show friend request (if available)
-                  $id = $_SESSION['id'];
+                  /*$id = $_SESSION['id'];
 
                   $sql = "SELECT * FROM `game_request` WHERE `send_to` = :id";
                   $prepare = $db->prepare($sql);
@@ -79,7 +90,7 @@
                         ';
 
                       }
-                  }
+                  }*/
 
               }else{
                 echo " 

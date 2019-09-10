@@ -1,12 +1,13 @@
+<?php require 'header.php'?>
+
+<main>
+	<div class="container">
+
 <?php
-
-require 'config.php'; // Include config.php file
-
-session_start(); // Starts session so you can use $_SESSION variable
 
 $id = $_SESSION['id']; // ID of user that is logged in
 
-echo "Hallo ".$_SESSION['username'];
+echo "<h2>Hallo ".$_SESSION['username'].",</h2>";
 
 // Fetch friends from users out of database
 $sql = "SELECT * FROM `friends` WHERE `user_1` = :id OR `user_2` = :id;";
@@ -17,9 +18,16 @@ $prepare->execute([
 
 $friends = $prepare->fetchAll(PDO::FETCH_ASSOC);
 
-echo '<p>Zie hier uw vrienden</p>';
+?>
 
-echo '<ul>';
+<p>Vrienden zoeken</p>
+<input type="text" name="friend">
+
+<p>Zie hier uw vrienden</p>
+<ul>
+
+<?php
+
 foreach ($friends as $friend) {
 
 	if ($friend['user_1'] != $id) {
@@ -51,55 +59,28 @@ foreach ($friends as $friend) {
 		echo '<button type="button" id="'.$friendInfo['id'].'" onclick="sendRequest(this.id)">Uitnodigen</button>';
 		echo '</li>';
 	}
-	
 }
-echo '</ul>';
-
 
 ?>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>
+		</ul>
 
-// When a user sends a friend request
-function sendRequest(id) {
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>
 
-	$.ajax({
-        url:"friends-controller.php?friend-id=" + id, // Goes to script which sends request to database
-        type: "POST", // Request type
-        success:function(result){ // When request to script is succesful
-         alert(result);
-       }
-     });
-}
+		// When a user sends a friend request
+		function sendRequest(id) {
 
-// Sends to friends controller which checks the database for friend requests
-function getRequest() {
+			$.ajax({
+		        url:"friends-controller.php?friend-id=" + id, // Goes to script which sends request to database
+		        type: "POST", // Request type
+		        success:function(result){ // When request to script is succesful
+		         alert(result);
+		       }
+		     });
+		}
 
-	$.ajax({
-        url:"friends-controller.php?request=hallo", // Goes to script which sends request to database
-        type: "POST", // Request type
-        success:function(result){ // When request to script is succesful
+		</script>
 
-        	var friendRequests = result;
-         
-        	for (i = 0; i < friendRequests.length; i++) {
-
-        		var request = friendRequests.i;
-
-        		alert(request.username);
-
-        	}
-
-       }
-     });
-}
-
-getRequest(); // Runs function on page load
-
-// Runs function every 5 seconds to check for friend requests
-setInterval( function() {
-	getRequest()
-}, 5000);
-
-</script>
+	</div>
+</main>

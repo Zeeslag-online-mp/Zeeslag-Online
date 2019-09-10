@@ -15,7 +15,7 @@ if (isset($_GET['friend-id'])) {
 		':friendId' => $friendId
 	]);
 }
-else if (isset($_GET['request'])) {
+else if (isset($_GET['fetch-invites'])) {
 
 	$sql = "SELECT * FROM `game_request` WHERE `send_to` = :userId;";
 	$prepare = $db->prepare($sql);
@@ -43,22 +43,18 @@ else if (isset($_GET['request'])) {
 		if ($i === 0) {
 			$users[0] = $user;
 		}
-
-		array_push($users, $user);
+		else {
+			array_push($users, $user);
+		}
+		
 		$i++;
 
 	}
 
-	echo '<pre>';
-	var_dump($users);
-	echo '</pre>';
-
 	echo json_encode($users); // Echo it to the page so you can use it in JavaScript function
 
 }
-else if (isset($_GET['accept'])) {
-
-	$_SESSION['accept'] = $_GET['accept'];
+else if (isset($_GET['remove-invite'])) {
 
 	$id = $_SESSION['id'];
 
@@ -67,6 +63,4 @@ else if (isset($_GET['accept'])) {
 	$prepare->execute([
 		':id' => $_SESSION['id']
 	]);
-
-	header("Location: http://$host/Zeeslag-Online/php/game.php");
 }

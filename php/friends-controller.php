@@ -64,3 +64,47 @@ else if (isset($_GET['remove-invite'])) {
 		':id' => $_SESSION['id']
 	]);
 }
+// Linking a friend/user to another user in the database
+else if (isset($_GET['add-friend'])) {
+
+	$friend = htmlspecialchars($_POST['friend']); // Username of the friend you want to add
+
+	// Fetching id and username from the specified friend
+	$sql = "SELECT `id`, `username` FROM `users` WHERE `username` = :friend;";
+	$prepare = $db->prepare($sql);
+	$prepare->execute([
+		':friend' => $friend
+	]);
+
+	$friendInfo = $prepare->fetch(PDO::FETCH_ASSOC); // Fetching returned data
+
+	// When friend name doesn't exists
+	if (empty($friendInfo)) {
+
+		$_SESSION['message'] = "Sorry, we konden speler met de naam ".$friend." niet vinden.";
+		header('Location: http://'.$host.'/Zeeslag-Online/php/friend-list.php');
+		exit;
+	}
+	// When the friend you want to add is yourself
+	else if ($friendInfo['id'] === $userId) {
+
+		$_SESSION['message'] = "Sorry, maar je kan je zelf niet als vriend toevoegen.";
+		header('Location: http://'.$host.'/Zeeslag-Online/php/friend-list.php');
+		exit;
+	}
+
+	// Linking user 1 to user 2 (friend)
+	$sql = "INSERT INTO `friends` VALUES(:userId, :friendId);";
+	$prepare = $db->prepare($sql);
+	$prepare->execute([
+		':userId' 	=> $userId,
+		':friendId' => $friendInfo['id']
+	]);
+
+	// Message when friend is succesful added
+	$_SESSION['message'] = $friendInfo['username']." is nu jouw vriend.";
+
+	// Redirect user back to friendlist
+	header('Location: http://'.$host.'/Zeeslag-Online/php/friend-list.php');
+	exit;
+}

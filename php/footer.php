@@ -33,18 +33,28 @@ if( isset($_GET['msg'])){
   $msg = $_GET['msg'];
   echo '<script>alert("'.$msg.'")</script>';
 }
+// Checks if there is a message to display without using GET request
+else if (isset($_SESSION['message'])) {
+
+  $msg = $_SESSION['message'];
+  echo '<script>alert("'.$msg.'")</script>';
+  unset($_SESSION['message']);
+}
 
 ?>
   
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script>
-    
+  
+  // DOESNT WORK YET!!!  
+
   // Sends request to the friends controller which checks the database for friend requests
   function getInvite() {
 
     $.ajax({
         //url: location.host + "/php/friends-controller.php?fetch-invites=fetch-invites", // Goes to script which sends request to database
         url: "friends-controller.php?fetch-invites=fetch-invites",
+        contentType: 'application/json; charset=utf-8',
         type: "POST", // Request type
         success: function(result) { // When request to script is succesful
           var invites = JSON.parse(result); // Converts JSON string 'result' to object

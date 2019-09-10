@@ -21,7 +21,10 @@ $friends = $prepare->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <p>Vrienden zoeken</p>
-<input type="text" name="friend">
+<form method="POST" action="friends-controller.php?add-friend=1">
+	<input type="text" name="friend">
+	<button>Zoek</button>
+</form>
 
 <p>Zie hier uw vrienden</p>
 <ul>
@@ -84,3 +87,5 @@ foreach ($friends as $friend) {
 
 	</div>
 </main>
+
+<?php require 'footer.php'?>

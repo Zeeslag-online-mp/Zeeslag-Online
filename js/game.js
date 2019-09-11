@@ -231,7 +231,23 @@
         return false;
     };
 
+    //ship plaatsen
+    Fleet.prototype.placementMouseover = function(e){
+        var self =e.target.self;
+        if(self.playerGrid){
+            var x= parseInt(e.target.getAttribute('div'), 10);
+            var y = parseInt(e.target.getAttribute('div'), 10);
 
+            var successful = self.player.placeShip(Fleet.direction, Fleet.placeShip);
+
+            if(successful){
+                self.endPlacing(Fleet.placeShip);    
+            }
+
+             self.playerGrid = false;
+        }   
+
+    }
 
     
     var mainGame = new Game();

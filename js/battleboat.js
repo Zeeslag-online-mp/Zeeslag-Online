@@ -1,24 +1,5 @@
 (function() {
-// Battleboat
-// Bill Mei, 2014
-// MIT License
 
-// Thanks to Nick Berry for the inspiration
-// http://www.datagenetics.com/blog/december32011/
-
-// TODO: Add a toggle that visualizes the probability grid via heatmap
-//       (scale a color via max and 0). The toggle only works once the user has
-//       finished placing their ships, or she can cheat easily by placing her ships
-//       outside the regions with the highest probability.
-
-console.log("%cHi! Thanks for checking out this game.%c Please be nice and don't " +
-	"hack the Stats object, I'm using Google Analytics to collect info about " +
-	"the AI's win/loss percentage in order to improve the bot, so if you do " +
-	"look around, I kindly ask that you don't give it bad data. Thanks :)",
-	"font-weight: bold; font-family: Tahoma, Helvetica, Arial, sans-serif;", "");
-console.log("Also, if you want to try stuff out, run %csetDebug(true);%c in the " +
-	"console before doing anything. You'll also get access to some cool features.",
-	"background: #000; color: #0f0; padding: 2px 5px; border-radius: 2px;", "");
 
 // Global Constants
 var CONST = {};

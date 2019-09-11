@@ -25,30 +25,84 @@
     
     function Game(size){
         Game.size = size
-        DrawGrids();
+        this.createGrid();
+        this.init();
        
     }
     Game.size = 10;
 
     let board = new Array(100).fill(null);
     console.log(board);
-
-    function DrawGrids(){
-        this.cells = [];
-        for (let i = 1; i <= 100; i++) {
-            var cell = document.createElement("div")
-            cell.classList.add('grid-cell-'+i);
-            gameBoardPlayer.appendChild(cell);
+    Game.prototype.createGrid = function() {
+        var gridDiv = document.querySelectorAll('.grid');
+        for (var grid = 0; grid < gridDiv.length; grid++) {
+            gridDiv[grid].removeChild(gridDiv[grid].querySelector('.no-js')); // Removes the no-js warning
+            for (var i = 0; i < Game.size; i++) {
+                for (var j = 0; j < Game.size; j++) {
+                    var el = document.createElement('div');
+                    el.setAttribute('data-x', i);
+                    el.setAttribute('data-y', j);
+                    el.setAttribute('class', 'grid-cell grid-cell-' + i + '-' + j);
+                    gridDiv[grid].appendChild(el);
+                }
+            }
+        }
+    };
+    
+   Game.prototype.rosterListener = function(e) {
+        var self = e.target.self;
+        var roster = document.querySelectorAll('.fleet-roster li');
+        for(var i = 0; i < roster.length; i++) {
+            var classes = roster[i].getAttribute('class') || '';
+            roster[i].setAttribute('class', classes);
         }
 
-        for (let i = 1; i <= 100; i++) {
-            var cell = document.createElement("div")
-            cell.classList.add('grid-cell-'+i);
-            gameBoardEnemy.appendChild(cell);
-        }
+        Game.placeShipType = e.target.getAttribute('id');
+        document.getElementById(Game.placeShipType).setAttribute('class', 'placing');
+        self.placingOnGrid = true;
     }
 
-    DrawGrids.prototype.updateCell = function(x, y, type) {
+    Game.prototype.placementListener = function(e){
+        var self = e.target.self;
+        if(self.placingOnGrid) {
+            var gridData = parseInt(e.target.getAttribute('grid-cell'), 10);
+            var succesful = self.humanfleet.placeShip(gridData, Game.placeShipType);
+            
+        }
+    }
+    
+    Game.prototype.areAllShipsPlaced = function() {
+        var playerRoster = document.querySelectorAll('.fleet-roster li');
+        for (var i = 0; i < playerRoster.length; i++) {
+            if (playerRoster[i].getAttribute('class') === 'placed') {
+                continue;
+            } else {
+                return false;
+            }
+        }
+        // Reset temporary variables
+        Game.placeShipDirection = 0;
+        Game.placeShipType = '';
+        Game.placeShipCoords = [];
+        return true;
+    };
+
+    function Grid(size){
+        this.size = size;
+        this.cells = [];
+        this.init();
+    }
+    // Initialize and populate the grid
+Grid.prototype.init = function() {
+	for (var x = 0; x < this.size; x++) {
+		var row = [];
+		this.cells[x] = row;
+		for (var y = 0; y < this.size; y++) {
+			row.push(CONST.TYPE_EMPTY);
+		}
+	}
+};
+    Grid.prototype.updateCell = function(x, y, type) {
         switch(type){
             case css_Type_Empty:
                 this.cells[x][y] = type_Empty;
@@ -75,15 +129,15 @@
         
     }
 
-    DrawGrids.prototype.isUndamagedShip = function(x, y) {
+    Grid.prototype.isUndamagedShip = function(x, y) {
         return this.cells[x][y] === type_Ship;
     };
 
-    DrawGrids.prototype.isMiss = function(x, y) {
+    Grid.prototype.isMiss = function(x, y) {
         return this.cells[x][y] === type_Miss;
     };
 
-    DrawGrids.prototype.isDamagedShip = function(x, y) {
+    Grid.prototype.isDamagedShip = function(x, y) {
         return this.cells[x][y] === type_Miss;
     };
 
@@ -231,22 +285,18 @@
         return false;
     };
 
-    //ship plaatsen
-    Fleet.prototype.placementMouseover = function(e){
-        var self =e.target.self;
-        if(self.playerGrid){
-            var x= parseInt(e.target.getAttribute('div'), 10);
-            var y = parseInt(e.target.getAttribute('div'), 10);
+    Game.prototype.init = function() {
+        this.humanGrid = new Grid(Game.size);
+        this.enemyGrid = new Grid(Game.size);
+        this.humanFleet = new Fleet(Game.size);
 
-            var successful = self.player.placeShip(Fleet.direction, Fleet.placeShip);
+        var playerRoster = document.querySelector('.fleet-roster').querySelectorAll('li');
+        for (var i = 0; i < playerRoster.length; i++) {
+            playerRoster[i].self = this;
+            playerRoster[i].addEventListener('click', this.rosterListener, false);
+        }
 
-            if(successful){
-                self.endPlacing(Fleet.placeShip);    
-            }
-
-             self.playerGrid = false;
-        }   
-
+       
     }
 
     

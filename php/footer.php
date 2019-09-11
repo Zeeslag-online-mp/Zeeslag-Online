@@ -49,7 +49,7 @@ else if (isset($_SESSION['message'])) {
   // DOESNT WORK YET!!!  
 
   // Sends request to the friends controller which checks the database for friend requests
-  function getInvite() {
+  /*function getInvite() {
 
     $.ajax({
         //url: location.host + "/php/friends-controller.php?fetch-invites=fetch-invites", // Goes to script which sends request to database
@@ -87,7 +87,7 @@ else if (isset($_SESSION['message'])) {
   // Runs function every 5 seconds to check for friend requests
   setInterval( function() {
     getInvite()
-  }, 5000);
+  }, 5000);*/
 
   </script>
   <script src="js/vendor/modernizr-3.7.1.min.js"></script>

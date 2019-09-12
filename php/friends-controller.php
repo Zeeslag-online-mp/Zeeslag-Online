@@ -4,16 +4,18 @@ require 'config.php';
 
 $userId = $_SESSION['id'];
 
-if (isset($_GET['friend-id'])) {
+if (isset($_GET['send-invite'])) {
 
 	$friendId = $_GET['friend-id']; 
 
-	$sql = "INSERT INTO `game_request` (`send_from`, `send_to`) VALUES (:userId, :friendId);";
+	$sql = "INSERT INTO `game_request` (`send_from`, `send_to`, `valid`, `seen`) VALUES (:userId, :friendId, 0, 0);";
 	$prepare = $db->prepare($sql);
 	$prepare->execute([
 		':userId' => $userId,
 		':friendId' => $friendId
 	]);
+
+	$displayMessage = "Speler uitgenodigd, wacht totdat hij de uitnodiging accepteerd.";
 }
 else if (isset($_GET['fetch-invites'])) {
 
@@ -77,6 +79,13 @@ else if (isset($_GET['add-friend'])) {
 	]);
 
 	$friendInfo = $prepare->fetch(PDO::FETCH_ASSOC); // Fetching returned data
+
+	// Fetching friends table
+	$sql = "SELECT * FROM `friends`;";
+	$prepare = $db->prepare($sql);
+	$prepare->execute();
+
+	$friendList = $prepare->fetchAll(PDO::FETCH_ASSOC);
 
 	// When friend name doesn't exists
 	if (empty($friendInfo)) {

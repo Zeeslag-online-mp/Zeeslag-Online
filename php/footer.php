@@ -64,16 +64,16 @@ else if (isset($_SESSION['message'])) {
             var request = invites[i]; 
 
             // AJAX request to friends controller to delete invite
-            $.ajax({
+            /*$.ajax({
               //url: location.host + "/php/friends-controller.php?remove-invite=remove-invite",
               url: "friends-controller.php?remove-invite=remove-invite",
               type: "POST"
-            });
+            });*/
 
             // When true send user to the game, else stay on the same page
-            if (confirm(request.username)) {
+            if (confirm(request.username + " heeft je uitgenodigt. Wil je deze uitnodiging zien?")) {
               //window.location.replace = location.host + "/php/game.php?game=";
-              window.location.replace = "game.php?game=";
+              window.location.href = "/Zeeslag-online/php/invites.php";
             }
 
           }
@@ -82,12 +82,17 @@ else if (isset($_SESSION['message'])) {
       });
   }
 
-  getInvite(); // Runs function on page load
+  //getInvite(); // Runs function on page load
 
   // Runs function every 5 seconds to check for friend requests
   setInterval( function() {
+<<<<<<< Updated upstream
     getInvite()
   }, 5000);*/
+=======
+    getInvite();
+  }, 5000);
+>>>>>>> Stashed changes
 
   </script>
   <script src="js/vendor/modernizr-3.7.1.min.js"></script>

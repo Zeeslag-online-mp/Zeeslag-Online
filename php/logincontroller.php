@@ -168,6 +168,10 @@ if($_POST ['type'] === 'register'){
         ':password' => $passwordhashed
       ]);
 
+      // get userId that was last stored
+      // Store userId (or username) in table score as well
+
+
       // Send thank you mail to user
       $to = $email;
       $subject = "Bedankt | Zeeslag Online";
@@ -181,6 +185,33 @@ if($_POST ['type'] === 'register'){
     } else {
       $messagefail = "wachtwoorden komen niet overeen!";
       header("location: register.php?msg=$messagefail");
+    }
+  }
+  if ($_POST['type'] == 'edit') {
+    $team = $_POST['team'];
+    $id = $_GET['id'];
+
+    $controller = "SELECT * FROM `teams` WHERE `team` = :team";
+    $preparecontroller = $db->prepare($controller);
+    $preparecontroller->execute([
+      ':team' => $team
+    ]);
+
+    $teamcontroller = $preparecontroller->fetchAll(PDO::FETCH_ASSOC);
+
+    if ($teamcontroller == false) {
+      $sql = "UPDATE teams SET team = :team WHERE id = :id";
+      $prepare = $db->prepare($sql);
+      $prepare->execute([
+        ':team' => $team,
+        ':id' => $id
+      ]);
+
+      header("location: index.php");
+      exit;
+    }
+    else {
+      header("Location: edit.php?msg=naam al in gebruik&id={$id}");
     }
   }
 

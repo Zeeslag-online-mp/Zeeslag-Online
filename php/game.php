@@ -35,9 +35,10 @@
 	</div>
 </div>
 
+        </div>
 </main>
 
 
-<script type="text/javascript" src="../js/battleboat.js"></script>
+<script type="text/javascript" src="../js/Game.js"></script>
 
-<?php require 'footer.php'; ?> 
+<?php require 'footer.php'; ?>

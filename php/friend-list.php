@@ -20,10 +20,10 @@ $friends = $prepare->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-<p>Vrienden zoeken</p>
+<p>Vrienden toevoegen</p>
 <form method="POST" action="friends-controller.php?add-friend=1">
 	<input type="text" name="friend">
-	<button>Zoek</button>
+	<button>Toevoegen</button>
 </form>
 
 <p>Zie hier uw vrienden</p>
@@ -75,10 +75,10 @@ foreach ($friends as $friend) {
 		function sendRequest(id) {
 
 			$.ajax({
-		        url:"friends-controller.php?friend-id=" + id, // Goes to script which sends request to database
+		        url:"friends-controller.php?send-invite=" + id, // Goes to script which sends request to database
 		        type: "POST", // Request type
-		        success:function(result){ // When request to script is succesful
-		         alert(result);
+		        success:function(){ // When request to script is succesful
+		        	window.location.href = 'game.php';
 		       }
 		     });
 		}

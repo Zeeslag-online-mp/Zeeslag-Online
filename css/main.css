@@ -118,6 +118,10 @@ h1{
     padding: 25px;
 }
 
+main {
+    min-height: 60.5vh;
+}
+
 
 /* ==================
    HEADER

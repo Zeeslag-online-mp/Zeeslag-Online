@@ -12,12 +12,10 @@
 
         <div>
           <h4>Links</h4>
-          <ul class="footer-link-list">
-            <li><a href="">Home</a></li>
-            <li><a href="info.php">Info</a></li>
+          <ul class="footer-link-list" style="list-style: none">
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="php/info.php">Info</a></li>
             <li><a href="">Over Ons</a></li>
-            <li><a href="">Doneren</a></li>
-            <li><a href="https://affortech.nl/portfolio/" target="_blank">Portfolio</a></li>
           </ul>
         </div>
 

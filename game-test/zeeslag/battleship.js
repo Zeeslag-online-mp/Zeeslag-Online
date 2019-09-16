@@ -4,7 +4,7 @@ var width = 50;
 var top = 0;
 var links = 0;
 //spelers
-var gameBoardPlayer = document.getElementById("grid-myplayer").onclick = changecolor;
+var gameBoardPlayer = document.getElementById("grid-myplayer");
 var gameBoardEnemy = document.getElementById("grid-enemyplayer");
 var block = document.getElementById("patreonboat");
 

@@ -8,7 +8,7 @@ CONST.AVAILABLE_SHIPS = ['carrier', 'battleship', 'destroyer', 'submarine', 'pat
 // The virtual player is used for generating temporary ships
 // for calculating the probability heatmap
 CONST.HUMAN_PLAYER = 0;
-CONST.VIRTUAL_PLAYER = 2;
+CONST.ENEMY_PLAYER = 1;
 // Possible values for the parameter `type` (string)
 CONST.CSS_TYPE_EMPTY = 'empty';
 CONST.CSS_TYPE_SHIP = 'ship';
@@ -227,10 +227,7 @@ Game.prototype.rosterListener = function(e) {
 		roster[i].setAttribute('class', classes);
 	}
 
-	// Move the highlight to the next step
-	if (gameTutorial.currentStep === 1) {
-		gameTutorial.nextStep();
-	}
+	
 	
 	// Set the class of the target ship to 'placing'
 	Game.placeShipType = e.target.getAttribute('id');
@@ -253,10 +250,7 @@ Game.prototype.placementListener = function(e) {
 			// Done placing this ship
 			self.endPlacing(Game.placeShipType);
 
-			// Remove the helper arrow
-			if (gameTutorial.currentStep === 2) {
-				gameTutorial.nextStep();
-			}
+			
 
 			self.placingOnGrid = false;
 			if (self.areAllShipsPlaced()) {
@@ -457,8 +451,9 @@ Game.prototype.init = function() {
 	this.humanGrid = new Grid(Game.size);
 	this.humanFleet = new Fleet(this.humanGrid, CONST.HUMAN_PLAYER);
 
-	this.robot = new AI(this);
-	Game.stats = new Stats();
+	this.enemyGrid =  new Grid(Game.size);
+	this.enemyFleet = new Fleet(this.enemyGrid, CONST.ENEMY_PLAYER)
+	
 	Game.stats.updateStatsSidebar();
 
 	// Reset game variables
@@ -469,7 +464,7 @@ Game.prototype.init = function() {
 	Game.placeShipType = '';
 	Game.placeShipCoords = [];
 
-	this.resetRosterSidebar();
+	
 
 
 	// Add a click listener to the roster	

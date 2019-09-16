@@ -6,14 +6,8 @@
   "directories": {
     "doc": "doc"
   },
-  "dependencies": {
-    "express": "^4.17.1",
-    "html-entities": "^1.1.2",
-    "socket.io": "^2.2.0"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "browserify js/game.js node_modules/interactjs -o bundle.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/Zeeslag-online-mp/Zeeslag-Online/issues"
   },
-  "homepage": "https://github.com/Zeeslag-online-mp/Zeeslag-Online#readme"
+  "homepage": "https://github.com/Zeeslag-online-mp/Zeeslag-Online#readme",
+  "dependencies": {
+    "interactjs": "^1.6.2",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "@interactjs/types": "^1.6.2"
+  }
 }

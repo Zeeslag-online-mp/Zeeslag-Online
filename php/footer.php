@@ -12,12 +12,10 @@
 
         <div>
           <h4>Links</h4>
-          <ul class="footer-link-list">
-            <li><a href="">Home</a></li>
-            <li><a href="">Info</a></li>
+          <ul class="footer-link-list" style="list-style: none">
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="php/info.php">Info</a></li>
             <li><a href="">Over Ons</a></li>
-            <li><a href="">Doneren</a></li>
-            <li><a href="https://affortech.nl/portfolio/" target="_blank">Portfolio</a></li>
           </ul>
         </div>
 
@@ -42,11 +40,11 @@ else if (isset($_SESSION['message'])) {
 }
 
 ?>
-  
+
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script>
-  
-  // DOESNT WORK YET!!!  
+
+  // DOESNT WORK YET!!!
 
   // Sends request to the friends controller which checks the database for friend requests
   /*function getInvite() {
@@ -58,10 +56,10 @@ else if (isset($_SESSION['message'])) {
         type: "POST", // Request type
         success: function(result) { // When request to script is succesful
           var invites = JSON.parse(result); // Converts JSON string 'result' to object
-         
+
           for (i = 0; i < invites.length; i++) { // Foreach invite inside array
 
-            var request = invites[i]; 
+            var request = invites[i];
 
             // AJAX request to friends controller to delete invite
             /*$.ajax({

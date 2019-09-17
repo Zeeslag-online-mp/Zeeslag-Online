@@ -1,7 +1,7 @@
 
 //bord
-(function(){
-  import interact from 'interactjs';
+console.log(interact)
+
 var row = 10;
 var colum = 10;
 var width = 50;
@@ -11,7 +11,7 @@ var links = 0;
 var gameBoardPlayer = document.getElementById("grid-myplayer");
 var gameBoardEnemy = document.getElementById("grid-enemyplayer");
 var block = document.getElementById("");
-
+var interact 
 
 
 
@@ -62,6 +62,7 @@ CONST.UNUSED = 0;
 function DrawGrids(){
     for (let i = 1; i <= 100; i++) {
         var cell = document.createElement("div")
+      
         gameBoardPlayer.appendChild(cell);
         cell.id = 'cell-' + i;
     
@@ -69,8 +70,11 @@ function DrawGrids(){
     
     for (let i = 1; i <= 100; i++) {
             var cell = document.createElement("div")
+           
+           
             gameBoardEnemy.appendChild(cell);
-            cell.id = 'cell-' + i;
+            cell.classList = 'tap-target';
+            cell.id =  'cell-' + i;
     
     }
 }
@@ -79,7 +83,7 @@ function changeColor(evt){
   
 
   }
-gameBoardEnemy.addEventListener('click', changeColor());
+gameBoardEnemy.addEventListener('click', clickOnGrid());
 DrawGrids();
 
-})();
+

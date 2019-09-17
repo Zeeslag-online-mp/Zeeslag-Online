@@ -2,7 +2,7 @@
   "name": "zeeslag-online",
   "version": "1.0.0",
   "description": "Zeeslag-Online\r testr",
-  "main": "app.js",
+  "main": "game.js",
   "directories": {
     "doc": "doc"
   },

@@ -18,6 +18,7 @@
   <link rel="stylesheet" href=<?php echo 'http://'.$host.'/Zeeslag-Online/css/normalize.css'?>>
   <link rel="stylesheet" href=<?php echo 'http://'.$host.'/Zeeslag-Online/css/main.css'?>>
   <link rel="stylesheet" href=<?php echo 'http://'.$host.'/Zeeslag-Online/css/site.css'?>>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 
   <meta name="theme-color" content="#fafafa">
 </head>

@@ -6,7 +6,7 @@
 	<div id="grid-myplayer">
         </div>
 
-        <div class="tap-target"id="grid-enemyplayer">
+        <div id="grid-enemyplayer">
 
         </div>
 
@@ -17,5 +17,5 @@
 
 
 <script src="../js/game.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+
 <?php require 'footer.php'; ?>

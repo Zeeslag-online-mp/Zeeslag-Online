@@ -15,7 +15,6 @@
 </main>
 
 
-
 <script src="../js/game.js"></script>
 
 <?php require 'footer.php'; ?>

@@ -2,20 +2,24 @@
 
 <main class="background-img">
 <div class="container">
-	<div class="game-container">
-        
-	<div id="grid-myplayer">
-        </div>
+	<div id="game-container" class="game-container">
+		<div id="boat"></div>
+		<div id="grid">
+			<div  id="grid-myplayer">
+					
+			</div>
+		</div>
+		
+				
+		<div  id="grid-enemyplayer">		
 
-        <div id="grid-enemyplayer">
-
-        </div>
-
+		</div>
 	</div>
 </div>
-</main>
 
 
+
+<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 <script src="../js/game.js"></script>
 
 <?php require 'footer.php'; ?>

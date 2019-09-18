@@ -251,15 +251,42 @@ input {
 	margin: 0 auto;
 }
 
-#grid-myplayer div{
+.game-container {
+    position: relative;
+    margin: 0 auto 2em auto;
+     margin-right: 50px;
+    min-height: 500px;
+}
 
--webkit-box-sizing: border-box; /* Safari 3.0 - 5.0, Chrome 1 - 9, Android 2.1 - 3.x */
--moz-box-sizing: border-box;    /* Firefox 1 - 28 */
-box-sizing: border-box;         /* Safari 5.1+, Chrome 10+, Firefox 29+, Opera 7+, IE 8+, Android 4.0+, iOS any */
-background: white; /* Old browsers */
-border: 1px solid blue;
-width:50px;
-height:50px;
+#grid {
+    position:relative;
+    
+    width:500px;
+    max-height:500px;
+   margin-left: 45px;
+    margin-top: 45px;
+}
+
+#boat {
+    background-color: #29e;
+    color: #fff;
+    font-size: 1.2em;
+    margin: 4%;
+    touch-action: none;
+    z-index: 2;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+#grid-myplayer div{
+    -webkit-box-sizing: border-box; /* Safari 3.0 - 5.0, Chrome 1 - 9, Android 2.1 - 3.x */
+    -moz-box-sizing: border-box;    /* Firefox 1 - 28 */
+    box-sizing: border-box;         /* Safari 5.1+, Chrome 10+, Firefox 29+, Opera 7+, IE 8+, Android 4.0+, iOS any */
+    background: white; /* Old browsers */
+    border: 1px solid blue;
+    width:50px;
+    height:50px;
 }
 
 p, button, input {
@@ -280,15 +307,12 @@ height:50px;
 }
 
 #grid-myplayer {
-display: grid;
-grid-template-columns: repeat(10, auto);
-grid-template-rows: repeat(10, auto);
-position:relative;
-margin:0 auto 2em auto;
-width:500px;
-height:500px;
-margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+    grid-template-rows: repeat(10, auto);
+    
 }
+
 #grid-enemyplayer {
 	display: grid;
     grid-template-columns: repeat(10, auto);
@@ -299,8 +323,28 @@ margin: 50px;
     margin: 50px;
 }
 
-#patreonboat{
-    background: gray;
+#boat-1 {
+background-color: #29e;
+color: #fff;
+font-size: 1.2em;
+margin: 4%;
+touch-action: none;
+z-index: 2;
+position: absolute;
+width: 100px;
+  height: 50px;
+}
+
+#boat-2 {
+background-color: #29e;
+color: #fff;
+font-size: 1.2em;
+margin: 4%;
+touch-action: none;
+z-index: 2;
+position: absolute;
+width: 100px;
+  height: 50px;
 }
 
 #gird-enemyplayer .switch-bg{
@@ -316,6 +360,9 @@ margin: 50px;
 .tap-target.switch-bg {
     background-color: #f40;
   }
+
+
+
 /* =================================
    FOOTER
    ================================= */

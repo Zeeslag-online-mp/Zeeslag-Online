@@ -62,11 +62,11 @@ else if (isset($_SESSION['message'])) {
             var request = invites[i];
 
             // AJAX request to friends controller to delete invite
-            /*$.ajax({
+            $.ajax({
               //url: location.host + "/php/friends-controller.php?remove-invite=remove-invite",
               url: "friends-controller.php?remove-invite=remove-invite",
               type: "POST"
-            });*/
+            });
 
             // When true send user to the game, else stay on the same page
             if (confirm(request.username + " heeft je uitgenodigt. Wil je deze uitnodiging zien?")) {

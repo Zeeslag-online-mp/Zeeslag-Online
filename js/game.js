@@ -28,6 +28,71 @@ function clickOnGrid(){
 //bord spel
 
 
+/* =====================
+ * PLACING BOATS
+ * ===================== */ 
+
+
+//bord spel
+let board = new Array(100).fill(null);
+console.log(board);
+
+/*for (let i = 1; i <= 100; i++) {
+    var cell = document.createElement("div")
+    gameBoardPlayer.appendChild(cell);
+    cell.id = 's' + i;
+
+}
+
+for (let i = 1; i <= 100; i++) {
+        var cell = document.createElement("div")
+        gameBoardEnemy.appendChild(cell);
+        cell.id = 's' + i;
+
+}*/
+
+
+DrawGrids();
+        
+var grid = document.getElementById('grid');
+
+
+  var cell = document.createElement("div");
+  grid.appendChild(cell);
+  cell.id = 'boat-';
+
+  var element = document.getElementById('boat');
+  var x = 0;
+  var y = 0;
+
+  interact(element) 
+    .draggable(
+    {
+      modifiers: [
+        interact.modifiers.snap({
+          targets: [
+            interact.createSnapGrid({ x: 50, y: 50 })
+          ],
+          range: Infinity,
+          relativePoints: [ { x: 0, y: 0 } ]
+        }),
+        interact.modifiers.restrict({
+          restriction: element.parentNode,
+          elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
+          endOnly: true
+        })
+      ],
+      inertia: true
+    })
+    .on('dragmove', function (event) {
+
+        x += event.dx
+        y += event.dy
+
+        event.target.style.webkitTransform =
+        event.target.style.transform =
+        'translate(' + x + 'px, ' + y + 'px)'
+    })
 
 
 
@@ -78,12 +143,12 @@ function DrawGrids(){
     
     }
 }
+
 function changeColor(evt){
     
   
 
   }
 gameBoardEnemy.addEventListener('click', clickOnGrid());
-DrawGrids();
 
 

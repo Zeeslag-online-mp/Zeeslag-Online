@@ -3,6 +3,7 @@
 <main class="background-img">
 <div class="container">
 	<div class="game-container">
+        
 	<div id="grid-myplayer">
         </div>
 

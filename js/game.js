@@ -11,11 +11,12 @@ var links = 0;
 var gameBoardPlayer = document.getElementById("grid-myplayer");
 var gameBoardEnemy = document.getElementById("grid-enemyplayer");
 var block = document.getElementById("");
-var interact 
+
 
 
 
 function clickOnGrid(){
+
     interact('.tap-target')
 .on('tap', function (event) {
   event.currentTarget.classList.toggle('switch-bg')
@@ -130,6 +131,7 @@ function DrawGrids(){
       
         gameBoardPlayer.appendChild(cell);
         cell.id = 'cell-' + i;
+        cell.classList = 'data-x' + i;
     
     }
     
@@ -138,10 +140,12 @@ function DrawGrids(){
            
            
             gameBoardEnemy.appendChild(cell);
-            cell.classList = 'tap-target';
+            cell.classList = 'tap-target data-x';
             cell.id =  'cell-' + i;
+            
     
     }
+ 
 }
 
 function changeColor(evt){

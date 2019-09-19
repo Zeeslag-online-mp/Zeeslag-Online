@@ -52,48 +52,66 @@ for (let i = 1; i <= 100; i++) {
 
 }*/
 
-
+createShip();
 DrawGrids();
-        
-var grid = document.getElementById('grid');
-
-
-  var cell = document.createElement("div");
-  grid.appendChild(cell);
-  cell.id = 'boat-';
+function createShip(){
 
   var element = document.getElementById('boat');
   var x = 0;
   var y = 0;
-
   interact(element) 
-    .draggable(
-    {
-      modifiers: [
-        interact.modifiers.snap({
-          targets: [
-            interact.createSnapGrid({ x: 50, y: 50 })
-          ],
-          range: Infinity,
-          relativePoints: [ { x: 0, y: 0 } ]
-        }),
-        interact.modifiers.restrict({
-          restriction: element.parentNode,
-          elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
-          endOnly: true
-        })
-      ],
-      inertia: true
-    })
-    .on('dragmove', function (event) {
+  .draggable(
+  {
+    modifiers: [
+      interact.modifiers.snap({
+        targets: [
+          interact.createSnapGrid({ x: 50, y: 50 })
+        ],
+        range: Infinity,
+        relativePoints: [ { x: 0, y: 0 } ]
+      }),
+      interact.modifiers.restrict({
+        restriction: element.parentNode,
+        elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
+        endOnly: true
+      })
+    ],
+    onmove:dragMoveListener,
+    inertia: true
+  })
+  .on('dragmove', function (event) {
 
-        x += event.dx
-        y += event.dy
+      x += event.dx
+      y += event.dy
 
-        event.target.style.webkitTransform =
-        event.target.style.transform =
-        'translate(' + x + 'px, ' + y + 'px)'
-    })
+      event.target.style.webkitTransform =
+      event.target.style.transform =
+      'translate(' + x + 'px, ' + y + 'px)'
+  })
+
+}
+
+
+
+function dragMoveListener (event) {
+  var target = event.target
+  // keep the dragged position in the data-x/data-y attributes
+  var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+  var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+
+  // translate the element
+  target.style.webkitTransform =
+    target.style.transform =
+      'translate(' + x + 'px, ' + y + 'px)'
+
+  // update the posiion attributes
+  target.setAttribute('data-x', x)
+  target.setAttribute('data-y', y)
+}
+
+  
+
+ 
 
 
 

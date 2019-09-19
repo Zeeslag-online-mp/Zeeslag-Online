@@ -246,15 +246,13 @@ input {
    GAME
    ========================= */
     
-   .game-container{
-	display: flex;
-	margin: 0 auto;
-}
+ 
 
 .game-container {
     position: relative;
-    margin: 0 auto 2em auto;
-     margin-right: 50px;
+    
+    display: flex;
+	margin: 0 auto;
     min-height: 500px;
 }
 
@@ -263,10 +261,14 @@ input {
     
     width:500px;
     max-height:500px;
-   margin-left: 45px;
+    max-width: 500px;
+    margin-left: 45px;
     margin-top: 45px;
 }
-
+#grid div{
+    top: 0;
+    left:0;
+}
 #boat {
     background-color: #29e;
     color: #fff;

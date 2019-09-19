@@ -12,7 +12,9 @@ var gameBoardPlayer = document.getElementById("grid-myplayer");
 var gameBoardEnemy = document.getElementById("grid-enemyplayer");
 var block = document.getElementById("");
 
-
+//bord spel
+let board = new Array(100).fill(null);
+console.log(board);
 
 
 function clickOnGrid(){
@@ -33,36 +35,20 @@ function clickOnGrid(){
  * PLACING BOATS
  * ===================== */ 
 
-
-//bord spel
-let board = new Array(100).fill(null);
-console.log(board);
-
-/*for (let i = 1; i <= 100; i++) {
-    var cell = document.createElement("div")
-    gameBoardPlayer.appendChild(cell);
-    cell.id = 's' + i;
-
-}
-
-for (let i = 1; i <= 100; i++) {
-        var cell = document.createElement("div")
-        gameBoardEnemy.appendChild(cell);
-        cell.id = 's' + i;
-
-}*/
-
-
 DrawGrids();
         
 var grid = document.getElementById('grid');
 
 
   var cell = document.createElement("div");
+  var cell1 = document.createElement("div");
   grid.appendChild(cell);
+  grid.appendChild(cell1);
   cell.id = 'boat-';
+  cell1.id = 'battleship';
 
   var element = document.getElementById('boat');
+  var battleship = document.getElementById('battleship');
   var x = 0;
   var y = 0;
 
@@ -72,7 +58,7 @@ var grid = document.getElementById('grid');
       modifiers: [
         interact.modifiers.snap({
           targets: [
-            interact.createSnapGrid({ x: 50, y: 50 })
+            interact.createSnapGrid({ x: 49.9, y: 50 })
           ],
           range: Infinity,
           relativePoints: [ { x: 0, y: 0 } ]
@@ -82,9 +68,11 @@ var grid = document.getElementById('grid');
           elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
           endOnly: true
         })
-      ],
-      inertia: true
+      ],       inertia: true
     })
+
+
+    
     .on('dragmove', function (event) {
 
         x += event.dx
@@ -98,7 +86,7 @@ var grid = document.getElementById('grid');
 
 
 
-    // Global Constants
+// Global Constants
 var CONST = {};
 CONST.AVAILABLE_SHIPS = ['carrier', 'battleship', 'destroyer', 'submarine', 'patrolboat'];
 // You are player 0 and the  is player 1

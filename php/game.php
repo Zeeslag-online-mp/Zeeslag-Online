@@ -12,6 +12,8 @@ if (!isset($_SESSION['id'])) {
 <div class="container">
 	<div id="game-container" class="game-container">
 		<div id="boat"></div>
+                <div id="battleship"></div>
+                
 		<div id="grid">
 			<div  id="grid-myplayer">
 					

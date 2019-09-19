@@ -272,8 +272,6 @@ input {
 #boat {
     background-color: #29e;
     color: #fff;
-    font-size: 1.2em;
-    margin: 4%;
     touch-action: none;
     z-index: 2;
     position: absolute;

@@ -7,6 +7,8 @@ if(!isset($_SESSION['id'])){
 
 ?>
 
+
+
 <main class="background-img">
 <div class="container">
 	<div id="game-container" class="game-container">

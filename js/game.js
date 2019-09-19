@@ -12,7 +12,9 @@ var gameBoardPlayer = document.getElementById("grid-myplayer");
 var gameBoardEnemy = document.getElementById("grid-enemyplayer");
 var block = document.getElementById("");
 
-
+//bord spel
+let board = new Array(100).fill(null);
+console.log(board);
 
 
 function clickOnGrid(){
@@ -57,6 +59,7 @@ DrawGrids();
 function createShip(){
 
   var element = document.getElementById('boat');
+  var battleship = document.getElementById('battleship');
   var x = 0;
   var y = 0;
   interact(element) 
@@ -116,7 +119,7 @@ function dragMoveListener (event) {
 
 
 
-    // Global Constants
+// Global Constants
 var CONST = {};
 CONST.AVAILABLE_SHIPS = ['carrier', 'battleship', 'destroyer', 'submarine', 'patrolboat'];
 // You are player 0 and the  is player 1

@@ -2,6 +2,9 @@
 
 require 'config.php';
 
+die(password_hash('Wachtwoord123', PASSWORD_DEFAULT));
+die('Werkt niet :(');
+
 $sql = "SELECT `g`.`id`, `sf`.`username`, `g`.`timestamp` AS `send_from`, `st`.`username` AS `send_to` FROM `game_request` AS `g` 
 	INNER JOIN `users` AS `sf` ON `g`.`send_from` = `sf`.`id`
 	INNER JOIN `users` AS `st` ON `g`.`send_to` = `st`.`id`

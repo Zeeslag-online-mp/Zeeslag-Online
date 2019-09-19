@@ -1,5 +1,13 @@
 <?php require 'header.php'?>
 
+<?php 
+
+if (!isset($_SESSION['id'])) {
+	header('Location: login.php');
+}
+
+?>
+
 <main class="background-img">
 <div class="container">
 	<div id="game-container" class="game-container">

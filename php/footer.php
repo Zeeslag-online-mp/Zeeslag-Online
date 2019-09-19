@@ -15,7 +15,6 @@
           <ul class="footer-link-list" style="list-style: none">
             <li><a href="../index.php">Home</a></li>
             <li><a href="php/info.php">Info</a></li>
-            <li><a href="">Over Ons</a></li>
           </ul>
         </div>
 

@@ -78,7 +78,7 @@ var grid = document.getElementById('grid');
           relativePoints: [ { x: 0, y: 0 } ]
         }),
         interact.modifiers.restrict({
-          restriction: element.parentNode,
+          restriction: grid,
           elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
           endOnly: true
         })

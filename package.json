@@ -21,7 +21,7 @@
   "homepage": "https://github.com/Zeeslag-online-mp/Zeeslag-Online#readme",
   "dependencies": {
     "interactjs": "^1.6.2",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   },
   "devDependencies": {
     "@interactjs/types": "^1.6.2"
